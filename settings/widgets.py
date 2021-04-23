@@ -107,11 +107,24 @@ primary_widgets = [
     widget.CurrentLayout(**base(bg='color2'), padding=5),
 
     powerline('dark', 'color2'),
+    powerline('color2', 'dark'),
+
+    icon(bg="color4", text='墳 '),
+
+    widget.Volume(**base(bg='color2')),
+
+    icon(bg="color2", text=' - '), 
+
+    icon(bg="color4", text=' '),
+
+    widget.Battery(**base(bg='color2')),
+
+    powerline('dark', 'color2'),
     powerline('color1', 'dark'),
 
     icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='color1'), format='%d/%m/%Y (%A) %H:%M '),
 
     powerline('dark', 'color1'),
 
