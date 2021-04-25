@@ -57,7 +57,7 @@ def workspaces():
             disable_drag=True
         ),
         separator(),
-        widget.Spacer(**base(fg='focus'), fontsize=14, padding=5),
+        widget.Spacer(**base(fg='focus'), fontsize=14, padding=5, opacity=0.5),
         separator(),
     ]
 
