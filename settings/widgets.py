@@ -109,13 +109,13 @@ primary_widgets = [
     powerline('dark', 'color2'),
     powerline('color2', 'dark'),
 
-    icon(bg="color4", text='墳 '),
+    icon(bg="color2", text='墳 '),
 
     widget.Volume(**base(bg='color2')),
 
     icon(bg="color2", text=' - '), 
 
-    icon(bg="color4", text=' '),
+    icon(bg="color2", text=' '),
 
     widget.Battery(**base(bg='color2')),
 
