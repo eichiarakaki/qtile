@@ -10,7 +10,6 @@ from libqtile.command import lazy
 
 mod = "mod4"
 
-
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
 
