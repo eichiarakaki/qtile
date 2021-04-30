@@ -28,7 +28,7 @@ groups = [Group(i) for i in [
 """
 
 groups = [Group(i) for i in [
-    " I ", " II ", " III ", " IV ", " V ", " VI ",
+    " Ⅰ ", " Ⅱ ", " Ⅲ ", " Ⅳ ", " Ⅴ ", " Ⅵ ",
 ]]
 
 for i, group in enumerate(groups):

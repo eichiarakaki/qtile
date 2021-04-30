@@ -14,12 +14,13 @@ def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
 
 
-def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3):
+def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None):
     return widget.TextBox(
         **base(fg, bg),
         fontsize=fontsize,
         text=text,
-        padding=padding
+        padding=padding,
+        fontshadow=fontshadow
     )
 
 
@@ -32,7 +33,7 @@ def powerline(fg="light", bg="dark"):
     )
     
 """
-colors = [
+my_colors = [
     ["#2e3440", "#2e3440"],  # background
     ["#d8dee9", "#d8dee9"],  # foreground
     ["#3b4252", "#3b4252"],  # background lighter
@@ -53,7 +54,7 @@ colors = [
 
 def workspaces(): 
     return [
-        icon(fg="color3", text=' arcн lιnυх', fontsize=17.3, padding=-2),
+        icon(fg="color3", text=' arcн lιnυх', fontsize=17.3, padding=5),
         separator(),
 
         widget.GroupBox(
@@ -68,11 +69,11 @@ def workspaces():
             borderwidth=1,
             active=colors['active'],
             inactive=colors['inactive'],
-            rounded=False,
+            rounded=True,
             highlight_method='block',
             urgent_alert_method='block',
             urgent_border=colors['urgent'],
-            block_highlight_text_color=colors['focus'],
+            block_highlight_text_color=colors['ws_focus'],
             this_current_screen_border=colors['dark'],
             this_screen_border=colors['grey'],
             other_current_screen_border=colors['dark'],
@@ -146,11 +147,11 @@ primary_widgets = [
     widget.Battery(**base(bg='dark', fg='color2')),
 
     powerline('dark', 'dark'),
-    powerline('dark', 'dark'),
+    #powerline('dark', 'dark'),
 
-    icon(bg="dark", fg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    #icon(bg="dark", fg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='dark', fg='color1'), format=' %A %B %d - %H:%M '),
+    widget.Clock(**base(bg='dark', fg='color1'), padding=10, format=' %A %B %d - %H:%M '),
 
     #powerline('dark', 'color1'),
 

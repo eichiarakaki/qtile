@@ -10,7 +10,7 @@ from settings.theme import colors
 
 
 layout_conf = {
-    'border_focus': colors['dark'][0],
+    'border_focus': colors['focus'][0],
     'border_width': 1,
     'margin': 15
 }
