@@ -10,8 +10,8 @@ def base(fg='text', bg='dark'):
     }
 
 
-def separator():
-    return widget.Sep(**base(), linewidth=0, padding=5)
+def separator(padding=5):
+    return widget.Sep(**base(), linewidth=0, padding=padding)
 
 
 def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None):
@@ -54,8 +54,7 @@ my_colors = [
 
 def workspaces(): 
     return [
-        icon(fg="color3", text=' arcн lιnυх', fontsize=17.3, padding=5),
-        separator(),
+        #icon(fg="symbol", text=' arcн lιnυх', fontsize=17.3, padding=5),
 
         widget.GroupBox(
             #center_aligned=True,
@@ -81,7 +80,7 @@ def workspaces():
             disable_drag=True
         ),
         separator(),
-        widget.Spacer(**base(fg='focus'), fontsize=14, padding=5),
+        widget.Spacer(**base()),
         separator(),
     ]
 
@@ -121,8 +120,6 @@ def workspaces():
 primary_widgets = [
     *workspaces(),
 
-    separator(),
-
     powerline('dark', 'dark'),
 
     widget.CPU(**base(bg='dark', fg='color3')),
@@ -133,8 +130,7 @@ primary_widgets = [
 
     widget.Memory(**base(bg='dark', fg='color3')),
 
-    powerline('dark', 'dark'),
-    powerline('dark', 'dark'),
+    separator(padding=20),
 
     icon(bg='dark', fg='color2', text='墳 '),
 
@@ -146,14 +142,13 @@ primary_widgets = [
 
     widget.Battery(**base(bg='dark', fg='color2')),
 
-    powerline('dark', 'dark'),
-    #powerline('dark', 'dark'),
+    separator(padding=20),
 
     #icon(bg="dark", fg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='dark', fg='color1'), padding=10, format=' %A %B %d - %H:%M '),
+    widget.Clock(**base(bg='dark', fg='color1'), format=' %A %B %d - %H:%M '),
 
-    #powerline('dark', 'color1'),
+    separator(padding=20),
 
     #widget.Systray(background=colors['dark'], padding=5),
 ]
