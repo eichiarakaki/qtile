@@ -30,7 +30,26 @@ def powerline(fg="light", bg="dark"):
         fontsize=37,
         padding=-2
     )
-
+    
+"""
+colors = [
+    ["#2e3440", "#2e3440"],  # background
+    ["#d8dee9", "#d8dee9"],  # foreground
+    ["#3b4252", "#3b4252"],  # background lighter
+    ["#bf616a", "#bf616a"],  # red
+    ["#a3be8c", "#a3be8c"],  # green
+    ["#ebcb8b", "#ebcb8b"],  # yellow
+    ["#81a1c1", "#81a1c1"],  # blue
+    ["#b48ead", "#b48ead"],  # magenta
+    ["#88c0d0", "#88c0d0"],  # cyan
+    ["#e5e9f0", "#e5e9f0"],  # white
+    ["#4c566a", "#4c566a"],  # grey
+    ["#d08770", "#d08770"],  # orange
+    ["#8fbcbb", "#8fbcbb"],  # super cyan
+    ["#5e81ac", "#5e81ac"],  # super blue
+    ["#242831", "#242831"],  # super dark background
+]
+"""
 
 def workspaces(): 
     return [
@@ -43,7 +62,7 @@ def workspaces():
             font='UbuntuMono Nerd Font',
             fontsize=19,
             margin_y=3,
-            margin_x=0,
+            margin=0,
             padding_y=8,
             padding_x=5,
             borderwidth=1,
@@ -53,7 +72,8 @@ def workspaces():
             highlight_method='block',
             urgent_alert_method='block',
             urgent_border=colors['urgent'],
-            this_current_screen_border=colors['focus'],
+            block_highlight_text_color=colors['focus'],
+            this_current_screen_border=colors['dark'],
             this_screen_border=colors['grey'],
             other_current_screen_border=colors['dark'],
             other_screen_border=colors['dark'],
@@ -102,37 +122,37 @@ primary_widgets = [
 
     separator(),
 
-    powerline('color3', 'dark'),
+    powerline('dark', 'dark'),
 
-    widget.CPU(**base(bg='color3')),
+    widget.CPU(**base(bg='dark', fg='color3')),
 
-    icon(bg="color3", text=' - '), 
+    icon(bg='dark', fg='color3', text=' - '), 
 
-    icon(bg="color3", text='Mem'), 
+    icon(bg='dark', fg='color3', text='Mem'), 
 
-    widget.Memory(**base(bg='color3')),
+    widget.Memory(**base(bg='dark', fg='color3')),
 
-    powerline('dark', 'color3'),
-    powerline('color2', 'dark'),
+    powerline('dark', 'dark'),
+    powerline('dark', 'dark'),
 
-    icon(bg="color2", text='墳 '),
+    icon(bg='dark', fg='color2', text='墳 '),
 
-    widget.Volume(**base(bg='color2')),
+    widget.Volume(**base(bg='dark', fg='color2')),
 
-    icon(bg="color2", text=' - '), 
+    icon(bg='dark', fg='color2', text=' - '), 
 
-    icon(bg="color2", text=' '),
+    icon(bg='dark', fg='color2', text=' '),
 
-    widget.Battery(**base(bg='color2')),
+    widget.Battery(**base(bg='dark', fg='color2')),
 
-    powerline('dark', 'color2'),
-    powerline('color1', 'dark'),
+    powerline('dark', 'dark'),
+    powerline('dark', 'dark'),
 
-    icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    icon(bg="dark", fg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format=' %A %B %d - %H:%M '),
+    widget.Clock(**base(bg='dark', fg='color1'), format=' %A %B %d - %H:%M '),
 
-    powerline('dark', 'color1'),
+    #powerline('dark', 'color1'),
 
     #widget.Systray(background=colors['dark'], padding=5),
 ]
@@ -152,7 +172,7 @@ secondary_widgets = [
 
     widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
 
-    powerline('dark', 'color2'),
+    #powerline('dark', 'color2'),
 ]
 
 widget_defaults = {
