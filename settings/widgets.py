@@ -1,7 +1,7 @@
-from libqtile import widget
+from libqtile import widget, bar
 from settings.theme import colors
+#from custom.windowname import WindowName as CustomWindowName
 
-# Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
 def base(fg='text', bg='dark'): 
     return {
@@ -14,13 +14,14 @@ def separator(padding=5):
     return widget.Sep(**base(), linewidth=0, padding=padding)
 
 
-def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None):
+def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None, font='Fira Code'):
     return widget.TextBox(
         **base(fg, bg),
         fontsize=fontsize,
         text=text,
         padding=padding,
-        fontshadow=fontshadow
+        fontshadow=fontshadow,
+        font=font
     )
 
 
@@ -59,7 +60,7 @@ def workspaces():
         widget.GroupBox(
             #center_aligned=True,
             **base(fg='light'),
-            font='UbuntuMono Nerd Font',
+            font='Fira Code',
             fontsize=19,
             margin_y=3,
             margin=0,
@@ -79,9 +80,20 @@ def workspaces():
             other_screen_border=colors['dark'],
             disable_drag=True
         ),
-        separator(),
         widget.Spacer(**base()),
-        separator(),
+
+        widget.WindowName(
+            **base(fg='ws_focus'), 
+            fontsize=14, 
+            font='Fira Code',
+            format='{state}',
+            width=bar.CALCULATED,
+            max_chars=60,
+            empty_group_string='Desktop',
+            fmt='{}'
+            ),
+        widget.Spacer(**base()),
+
     ]
 
 """ Check Updates"""
@@ -120,33 +132,40 @@ def workspaces():
 primary_widgets = [
     *workspaces(),
 
-    powerline('dark', 'dark'),
-
     widget.CPU(**base(bg='dark', fg='color3')),
 
     icon(bg='dark', fg='color3', text=' - '), 
 
     icon(bg='dark', fg='color3', text='Mem'), 
 
-    widget.Memory(**base(bg='dark', fg='color3')),
+    widget.Memory(**base(bg='dark', fg='color3'), font='Fira Code'),
 
     separator(padding=20),
 
     icon(bg='dark', fg='color2', text='墳 '),
 
-    widget.Volume(**base(bg='dark', fg='color2')),
+    widget.Volume(**base(bg='dark', fg='color2'), font='Fira Code'),
 
     icon(bg='dark', fg='color2', text=' - '), 
 
-    icon(bg='dark', fg='color2', text=' '),
-
-    widget.Battery(**base(bg='dark', fg='color2')),
+    widget.Battery(
+        **base(bg='dark', fg='color2'), 
+        discharge_char='',
+        charge_char=' ',
+        format='{char} {percent:2.0%}',
+        update_interval=60, 
+        font='Fira Code'
+        ),
 
     separator(padding=20),
 
     #icon(bg="dark", fg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='dark', fg='color1'), format=' %A %B %d - %H:%M '),
+    widget.Clock(
+        **base(bg='dark', fg='color1'), 
+        format=' %A %B %d - %H:%M ', 
+        font='Fira Code'
+        ),
 
     separator(padding=20),
 
@@ -166,7 +185,7 @@ secondary_widgets = [
 
     powerline('color2', 'color1'),
 
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='dark', fg='color1'), format=' %A %B %d - %H:%M '),
 
     #powerline('dark', 'color2'),
 ]

@@ -6,6 +6,11 @@ from libqtile import layout
 from libqtile.config import Match
 from settings.theme import colors
 
+#from custom.bsp import Bsp as CustomBsp
+#from custom.pomodoro import Pomodoro as CustomPomodoro
+#from custom.zoomy import Zoomy as CustomZoomy
+#from custom.stack import Stack as CustomStack
+
 # Layouts and layout rules
 
 
@@ -19,6 +24,7 @@ layouts = [
     layout.Max(),
     layout.MonadTall(**layout_conf),
     layout.MonadWide(**layout_conf),
+    #CustomBsp(**layout_conf, fair=False),
     # layout.Bsp(**layout_conf),
     # layout.Matrix(columns=2, **layout_conf),
     # layout.RatioTile(**layout_conf),
@@ -26,7 +32,7 @@ layouts = [
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
-    layout.Zoomy(),
+    
 ]
 
 floating_layout = layout.Floating(
