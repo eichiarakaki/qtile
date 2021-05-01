@@ -1,5 +1,6 @@
 # Qtile
-Mi configuración con base a la de Antonio Sarosi
+Mi configuración con base a la de @antoniosarosi
 
-# Fuente:
+# Fuentes:
 Fira Code (https://archlinux.org/packages/community/any/ttf-fira-code/)
+Awesome (https://archlinux.org/packages/community/any/ttf-font-awesome/)

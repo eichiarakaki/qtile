@@ -1,21 +1,9 @@
-# Antonio Sarosi
-# https://youtube.com/c/antoniosarosi
-# https://github.com/antoniosarosi/dotfiles
-
 from libqtile import layout
 from libqtile.config import Match
 from settings.theme import colors
 
-#from custom.bsp import Bsp as CustomBsp
-#from custom.pomodoro import Pomodoro as CustomPomodoro
-#from custom.zoomy import Zoomy as CustomZoomy
-#from custom.stack import Stack as CustomStack
-
-# Layouts and layout rules
-
-
 layout_conf = {
-    'border_focus': colors['focus'][0],
+    'border_focus': colors['dark'][0],
     'border_width': 1,
     'margin': 15
 }
@@ -45,5 +33,5 @@ floating_layout = layout.Floating(
         Match(title='branchdialog'),
         Match(title='pinentry'),
     ],
-    border_focus=colors["color4"][0]
+    border_focus=colors["dark"][0]
 )

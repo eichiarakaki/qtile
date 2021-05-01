@@ -1,6 +1,5 @@
 from libqtile import widget, bar
 from settings.theme import colors
-#from custom.windowname import WindowName as CustomWindowName
 
 
 def base(fg='text', bg='dark'): 
@@ -22,15 +21,6 @@ def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None
         padding=padding,
         fontshadow=fontshadow,
         font=font
-    )
-
-
-def powerline(fg="light", bg="dark"):
-    return widget.TextBox(
-        **base(fg, bg),
-        text="", # Icon: nf-oct-triangle_left
-        fontsize=37,
-        padding=-2
     )
     
 """
@@ -55,10 +45,8 @@ my_colors = [
 
 def workspaces(): 
     return [
-        #icon(fg="symbol", text=' arcн lιnυх', fontsize=17.3, padding=5),
-
+        widget.Spacer(**base()),
         widget.GroupBox(
-            #center_aligned=True,
             **base(fg='light'),
             font='Fira Code',
             fontsize=19,
@@ -81,70 +69,15 @@ def workspaces():
             disable_drag=True
         ),
         widget.Spacer(**base()),
-
-        widget.WindowName(
-            **base(fg='ws_focus'), 
-            fontsize=14, 
-            font='Fira Code',
-            format='{state}',
-            width=bar.CALCULATED,
-            max_chars=60,
-            empty_group_string='Desktop',
-            fmt='{}'
-            ),
-        widget.Spacer(**base()),
-
     ]
 
-""" Check Updates"""
-    #powerline('color4', 'dark'),
-
-    #icon(bg="color4", text=' '), # Icon: nf-fa-download
-    
-    #widget.CheckUpdates(
-    #    background=colors['color4'],
-    #    colour_have_updates=colors['text'],
-    #    colour_no_updates=colors['text'],
-    #    no_update_string='0',
-    #    display_format='{updates}',
-    #    update_interval=900,
-    #    custom_command='checkupdates',
-    #),
-
-    #powerline('dark', 'color4'),
-""""""
-
-"""Layout mode"""
-    #widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
-
-    #widget.CurrentLayout(**base(bg='color2'), padding=5),
-
-    #powerline('dark', 'color2'),
-    #powerline('color2', 'dark'),
-""""""
-
-""" Net """
-# icon(bg="color3", text=' '),  # Icon: nf-fa-feed
-    
-# widget.Net(**base(bg='color3'), interface='enp13s0f1'),
-""""""
-
 primary_widgets = [
-    *workspaces(),
-
-    widget.CPU(**base(bg='dark', fg='color3')),
-
-    icon(bg='dark', fg='color3', text=' - '), 
-
-    icon(bg='dark', fg='color3', text='Mem'), 
-
-    widget.Memory(**base(bg='dark', fg='color3'), font='Fira Code'),
 
     separator(padding=20),
 
-    icon(bg='dark', fg='color2', text='墳 '),
+    icon(bg='dark', fg='color2', text='墳'),
 
-    widget.Volume(**base(bg='dark', fg='color2'), font='Fira Code'),
+    widget.Volume(**base(bg='dark', fg='color2'), font='Font Awesome 5 Free Solid'),
 
     icon(bg='dark', fg='color2', text=' - '), 
 
@@ -154,27 +87,40 @@ primary_widgets = [
         charge_char=' ',
         format='{char} {percent:2.0%}',
         update_interval=60, 
-        font='Fira Code'
+        font='Font Awesome 5 Free Solid'
         ),
+    
+    *workspaces(),
 
-    separator(padding=20),
-
-    #icon(bg="dark", fg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    widget.TextBox(
+        text="  ",
+        font="Font Awesome 5 Free Solid",
+        foreground=colors['color1'],
+        background=colors['dark'],
+        ),
 
     widget.Clock(
-        **base(bg='dark', fg='color1'), 
-        format=' %A %B %d - %H:%M ', 
-        font='Fira Code'
+        format="%a, %b %d",
+        foreground=colors['color1'],
+        background=colors['dark'],
+        ),
+
+    icon(bg='dark', fg='color1', text=' - '), 
+
+    widget.Clock(
+        format="%I:%M %p",
+        foreground=colors['color1'],
+        background=colors['dark'],
         ),
 
     separator(padding=20),
 
-    #widget.Systray(background=colors['dark'], padding=5),
 ]
+
 
 secondary_widgets = [
     *workspaces(),
-
+"""
     separator(),
 
     powerline('color1', 'dark'),
@@ -188,10 +134,11 @@ secondary_widgets = [
     widget.Clock(**base(bg='dark', fg='color1'), format=' %A %B %d - %H:%M '),
 
     #powerline('dark', 'color2'),
+"""
 ]
 
 widget_defaults = {
-    'font': 'UbuntuMono Nerd Font Bold',
+    'font': 'Font Awesome 5 Free Solid',
     'fontsize': 14,
     'padding': 1,
 }
