@@ -1,15 +1,19 @@
 from libqtile.config import Screen
 from libqtile import bar
 from libqtile.log_utils import logger
-from settings.widgets import primary_widgets, secondary_widgets
+from settings.widgets import primary_widgets_barA, primary_widgets_barB, secondary_widgets
 import subprocess
 
 
-def status_bar(widgets):
-    return bar.Bar(widgets, 34, opacity=1, margin=[13, 100*2, 10, 100*2])
+def bars():
+    return [
+        bar.Bar(primary_widgets_barA, 34, opacity=1, margin=[13, 100*13, 10, 100*1]),
+        bar.Bar(primary_widgets_barB, 34, opacity=1, margin=[10, 100*1, 13, 100*13])
+    ]
 
 
-screens = [Screen(top=status_bar(primary_widgets))]
+screens = [Screen(*bars())]
+
 
 xrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
 

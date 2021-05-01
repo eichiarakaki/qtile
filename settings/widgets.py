@@ -9,11 +9,11 @@ def base(fg='text', bg='dark'):
     }
 
 
-def separator(padding=5):
-    return widget.Sep(**base(), linewidth=0, padding=padding)
+def separator(padding=5, bg='dark'):
+    return widget.Sep(**base(bg=bg), linewidth=0, padding=padding)
 
 
-def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None, font='Fira Code'):
+def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None, font='Font Awesome 5 Free Solid'):
     return widget.TextBox(
         **base(fg, bg),
         fontsize=fontsize,
@@ -22,7 +22,7 @@ def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None
         fontshadow=fontshadow,
         font=font
     )
-    
+
 """
 my_colors = [
     ["#2e3440", "#2e3440"],  # background
@@ -43,12 +43,13 @@ my_colors = [
 ]
 """
 
-def workspaces(): 
+def barA():
+    bgmgr = 'bg'
     return [
-        widget.Spacer(**base()),
+    
         widget.GroupBox(
-            **base(fg='light'),
-            font='Fira Code',
+            **base(fg='light', bg=bgmgr),
+            font='Font Awesome 5 Free Solid',
             fontsize=19,
             margin_y=3,
             margin=0,
@@ -62,64 +63,72 @@ def workspaces():
             urgent_alert_method='block',
             urgent_border=colors['urgent'],
             block_highlight_text_color=colors['ws_focus'],
-            this_current_screen_border=colors['dark'],
+            this_current_screen_border=colors[bgmgr],
             this_screen_border=colors['grey'],
-            other_current_screen_border=colors['dark'],
-            other_screen_border=colors['dark'],
+            other_current_screen_border=colors[bgmgr],
+            other_screen_border=colors[bgmgr],
             disable_drag=True
         ),
-        widget.Spacer(**base()),
+        widget.Spacer(**base(bg=bgmgr)),
     ]
 
-primary_widgets = [
 
-    separator(padding=20),
+def barB():
+    bgmgr = 'bg'
+    return [
+        widget.Spacer(**base(bg=bgmgr)),
 
-    icon(bg='dark', fg='color2', text='墳'),
+        icon(bg=bgmgr, fg='color2', text='墳'),
 
-    widget.Volume(**base(bg='dark', fg='color2'), font='Font Awesome 5 Free Solid'),
+        widget.Volume(**base(bg=bgmgr, fg='color2'), font='Font Awesome 5 Free Solid'),
 
-    icon(bg='dark', fg='color2', text=' - '), 
+        icon(bg=bgmgr, fg='color2', text=' - '), 
 
-    widget.Battery(
-        **base(bg='dark', fg='color2'), 
-        discharge_char='',
-        charge_char=' ',
-        format='{char} {percent:2.0%}',
-        update_interval=60, 
-        font='Font Awesome 5 Free Solid'
-        ),
-    
-    *workspaces(),
+        widget.Battery(
+            **base(bg=bgmgr, fg='color2'), 
+            discharge_char='',
+            charge_char=' ',
+            format='{char} {percent:2.0%}',
+            update_interval=60, 
+            font='Font Awesome 5 Free Solid'
+            ),
+        
+        separator(padding=25, bg=bgmgr),
 
-    widget.TextBox(
-        text="  ",
-        font="Font Awesome 5 Free Solid",
-        foreground=colors['color1'],
-        background=colors['dark'],
-        ),
+        widget.TextBox(
+            text="  ",
+            font="Font Awesome 5 Free Solid",
+            foreground=colors['color1'],
+            background=colors[bgmgr],
+            ),
 
-    widget.Clock(
-        format="%a, %b %d",
-        foreground=colors['color1'],
-        background=colors['dark'],
-        ),
+        widget.Clock(
+            format="%a, %b %d",
+            foreground=colors['color1'],
+            background=colors[bgmgr],
+            ),
 
-    icon(bg='dark', fg='color1', text=' - '), 
+        icon(bg=bgmgr, fg='color1', text=' - '), 
 
-    widget.Clock(
-        format="%I:%M %p",
-        foreground=colors['color1'],
-        background=colors['dark'],
-        ),
+        widget.Clock(
+            format="%I:%M %p",
+            foreground=colors['color1'],
+            background=colors[bgmgr],
+            ),
 
-    separator(padding=20),
+        separator(padding=20, bg=bgmgr),
+    ]
 
+
+primary_widgets_barA = [
+    *barA()
+]
+primary_widgets_barB = [
+    *barB()
 ]
 
-
 secondary_widgets = [
-    *workspaces(),
+    *barA(),
 """
     separator(),
 
