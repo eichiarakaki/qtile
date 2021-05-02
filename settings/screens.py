@@ -7,8 +7,8 @@ import subprocess
 
 def bars():
     return [
-        bar.Bar(primary_widgets_barA, 34, opacity=1, margin=[13, 100*13, 10, 100*1]),
-        bar.Bar(primary_widgets_barB, 34, opacity=1, margin=[10, 100*1, 13, 100*13])
+        bar.Bar(primary_widgets_barA, 34, opacity=1, margin=[13, 25*31, 10, 25*31]),
+        bar.Bar(primary_widgets_barB, 34, opacity=1, margin=[10, 100*1, 13, 100*1])
     ]
 
 

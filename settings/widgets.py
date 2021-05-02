@@ -1,26 +1,28 @@
 from libqtile import widget, bar
 from settings.theme import colors
 
+GBMGR = 'bg'
+FGMGR = 'fg'
 
-def base(fg='text', bg='dark'): 
+def base(fg=FGMGR, bg=GBMGR): 
     return {
         'foreground': colors[fg],
-        'background': colors[bg]
+        'background': colors[bg],
+        'font': 'Font Awesome 5 Free Solid'
     }
 
 
-def separator(padding=5, bg='dark'):
+def separator(padding=5, bg=GBMGR):
     return widget.Sep(**base(bg=bg), linewidth=0, padding=padding)
 
 
-def icon(fg='text', bg='dark', fontsize=16, text="?", padding=3, fontshadow=None, font='Font Awesome 5 Free Solid'):
+def icon(fg=FGMGR, bg=GBMGR, fontsize=16, text="?", padding=3, fontshadow=None):
     return widget.TextBox(
         **base(fg, bg),
         fontsize=fontsize,
         text=text,
         padding=padding,
-        fontshadow=fontshadow,
-        font=font
+        fontshadow=fontshadow
     )
 
 """
@@ -44,79 +46,92 @@ my_colors = [
 """
 
 def barA():
-    bgmgr = 'bg'
     return [
-    
+        separator(padding=8, bg=GBMGR),
         widget.GroupBox(
-            **base(fg='light', bg=bgmgr),
-            font='Font Awesome 5 Free Solid',
+            **base(fg=FGMGR, bg=GBMGR),
             fontsize=19,
             margin_y=3,
             margin=0,
             padding_y=8,
             padding_x=5,
             borderwidth=1,
-            active=colors['active'],
-            inactive=colors['inactive'],
+            active=colors['fg'],
+            inactive=colors['fg'],
             rounded=True,
             highlight_method='block',
             urgent_alert_method='block',
             urgent_border=colors['urgent'],
-            block_highlight_text_color=colors['ws_focus'],
-            this_current_screen_border=colors[bgmgr],
+            block_highlight_text_color=colors['urgent'],
+            this_current_screen_border=colors[GBMGR],
             this_screen_border=colors['grey'],
-            other_current_screen_border=colors[bgmgr],
-            other_screen_border=colors[bgmgr],
+            other_current_screen_border=colors[GBMGR],
+            other_screen_border=colors[GBMGR],
             disable_drag=True
         ),
-        widget.Spacer(**base(bg=bgmgr)),
+        widget.Spacer(**base(bg=GBMGR)),
     ]
 
 
 def barB():
-    bgmgr = 'bg'
     return [
-        widget.Spacer(**base(bg=bgmgr)),
+        separator(padding=25, bg=GBMGR),
 
-        icon(bg=bgmgr, fg='color2', text='墳'),
+        widget.CPU(**base(bg=GBMGR, fg=FGMGR), 
+                   fontsize=12,
+                   format='💻 {freq_current}GHz',
+                   update_interval=1
+                   ),
 
-        widget.Volume(**base(bg=bgmgr, fg='color2'), font='Font Awesome 5 Free Solid'),
+        separator(padding=20, bg=GBMGR),
 
-        icon(bg=bgmgr, fg='color2', text=' - '), 
+        icon(bg=GBMGR, fg='color6', text=' ', fontsize=19), 
 
-        widget.Battery(
-            **base(bg=bgmgr, fg='color2'), 
-            discharge_char='',
-            charge_char=' ',
-            format='{char} {percent:2.0%}',
-            update_interval=60, 
-            font='Font Awesome 5 Free Solid'
-            ),
-        
-        separator(padding=25, bg=bgmgr),
+        widget.Memory(**base(bg=GBMGR, fg=FGMGR),
+                     fontsize=12,
+        ),
+
+        widget.Spacer(**base(bg=GBMGR)),
 
         widget.TextBox(
             text="  ",
-            font="Font Awesome 5 Free Solid",
             foreground=colors['color1'],
-            background=colors[bgmgr],
+            background=colors[GBMGR],
             ),
 
         widget.Clock(
-            format="%a, %b %d",
-            foreground=colors['color1'],
-            background=colors[bgmgr],
+            format="%A, %B %d",
+            foreground=colors[FGMGR],
+            background=colors[GBMGR],
             ),
 
-        icon(bg=bgmgr, fg='color1', text=' - '), 
+        icon(bg=GBMGR, fg=FGMGR, text=' - '), 
 
         widget.Clock(
             format="%I:%M %p",
-            foreground=colors['color1'],
-            background=colors[bgmgr],
+            foreground=colors[FGMGR],
+            background=colors[GBMGR],
+            ),
+            
+        widget.Spacer(**base(bg=GBMGR)),
+
+        icon(bg=GBMGR, fg='color2', text='墳  ', fontsize=19),
+
+        widget.Volume(**base(bg=GBMGR, fg=FGMGR)),
+
+        separator(padding=20, bg=GBMGR),
+
+        icon(bg=GBMGR, fg='color5', text=' ', fontsize=13), 
+
+        widget.Battery(
+            **base(bg=GBMGR, fg=FGMGR), 
+            discharge_char='',
+            charge_char='',
+            format='{char} {percent:2.0%}',
+            update_interval=60, 
             ),
 
-        separator(padding=20, bg=bgmgr),
+        separator(padding=20, bg=GBMGR),
     ]
 
 
