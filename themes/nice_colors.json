@@ -1,0 +1,295 @@
+{   
+    "bg": [
+        "#121212",
+        "#121212"
+    ],
+    "fg": [
+        "#d8dee9",
+        "#d8dee9"
+    ],
+    "color0": [
+        "#75848F",
+        "#75848F"
+    ],
+    "color1": [
+        "#c5c9de",
+        "#c5c9de"
+    ],
+    "color2": [
+        "#3b4252",
+        "#3b4252"
+    ],
+    "color3": [
+        "#bf616a",
+        "#bf616a"
+    ],
+    "color4": [
+        "#F74646",
+        "#F74646"
+    ],
+    "color5": [
+        "#AEF78E",
+        "#AEF78E"
+    ],
+    "color6": [
+        "#FFC300",
+        "#FFC300"
+    ],
+    "color7": [
+        "#b48ead",
+        "#b48ead"
+    ],
+    "color8": [
+        "#CEE7EC",
+        "#CEE7EC"
+    ],
+    "color9": [
+        "#D9E7F0",
+        "#D9E7F0"
+    ],
+    "color10": [
+        "#30324A",
+        "#30324A"
+    ],
+    "color11": [
+        "#FE4773",
+        "#FE4773"
+    ],
+    "color12": [
+        "#46B3A5",
+        "#46B3A5"
+    ],
+    "color13": [
+        "#5e81ac",
+        "#5e81ac"
+    ],
+    "color14": [
+        "#1A1C2C",
+        "#1A1C2C"
+    ],
+    "color15": [
+        "#a151d3",
+        "#a151d3"
+    ],
+    "color16": [
+        "#F07178",
+        "#F07178"
+    ],
+    "color17": [
+        "#fb9f7f",
+        "#fb9f7f"
+    ],
+    "color18": [
+        "#ffd47e",
+        "#ffd47e"
+    ],
+    "color19": [
+        "#b05279",
+        "#b05279"
+    ],
+    "color20": [
+        "#e87d3e",
+        "#e87d3e"
+    ],
+    "color21": [
+        "#9e86c8",
+        "#9e86c8"
+    ],
+    "color22": [
+        "#b4d273",
+        "#b4d273"
+    ],
+    "color23": [
+        "#a3be8c",
+        "#a3be8c"
+    ],
+    "color24": [
+        "#505d79",
+        "#505d79"
+    ],
+    "color25": [
+        "#FFD700",
+        "#FFD700"
+    ],
+    "color26": [
+        "#eabbb9",
+        "#eabbb9"
+    ],
+    "color27": [
+        "#FEFFE6",
+        "#FEFFE6"
+    ],
+    "color28": [
+        "#a6d6d6",
+        "#a6d6d6"
+    ],
+    "color39": [
+        "#ea6f91",
+        "#ea6f91"
+    ],
+    "color40": [
+        "#0F0F0F",
+        "#0F0F0F"
+    ],
+    "color41": [
+        "#393939",
+        "#393939"
+    ],
+    "color42": [
+        "#AC8A8C",
+        "#AC8A8C"
+    ],
+    "color43": [
+        "#8AACAB",
+        "#8AACAB"
+    ],
+    "color44": [
+        "#8AAC8B",
+        "#8AAC8B"
+    ],
+    "color45": [
+        "#8A98AC",
+        "#8A98AC"
+    ],
+    "color46": [
+        "#C6A679",
+        "#C6A679"
+    ],
+    "color47": [
+        "#8F8AAC",
+        "#8F8AAC"
+    ],
+    "color48": [
+        "#ACA98A",
+        "#ACA98A"
+    ],
+    "color49": [
+        "#E7E7E7",
+        "#E7E7E7"
+    ],
+    "color50": [
+        "#CEB188",
+        "#CEB188"
+    ],
+    "color51": [
+        "#cacaca",
+        "#cacaca"
+    ],
+    "color52": [
+        "#9EC49F",
+        "#9EC49F"
+    ],
+    "color53": [
+        "#C49EA0",
+        "#C49EA0"
+    ],
+    "color54": [
+        "#a6979e",
+        "#a6979e"
+    ],
+    "color55": [
+        "#D6E0E0",
+        "#D6E0E0"
+    ],
+    "color56": [
+        "#F3A68E",
+        "#F3A68E"
+    ],
+    "color57": [
+        "#071013",
+        "#071013"
+    ],
+    "color58": [
+        "#feffff",
+        "#feffff"
+    ],
+    "color59": [
+	    "#565F71",
+	    "#565F71"
+    ],
+    "color60": [
+	    "#1c1c1e",
+	    "#1c1c1e"
+    ],
+    "color61": [
+        "#bfd5de",
+        "#bfd5de"
+    ],
+    "color62": [
+        "#57937B",
+        "#57937B"
+    ],
+    "color63": [
+        "#8AEDEB",
+        "#8AEDEB"
+    ],
+    "color64": [
+        "#9F8AED",
+        "#9F8AED"
+    ],
+    "color65": [
+        "#ED8AE7",
+        "#ED8AE7"
+    ],
+    "color66": [
+        "#ED8A8B",
+        "#ED8A8B"
+    ],
+    "color67": [
+        "#EDE78A",
+        "#EDE78A"
+    ],
+    "color68": [
+        "#f47b67",
+        "#f47b67"
+    ],
+    "color69": [
+        "#98989f",
+        "#98989f"
+    ],
+    "color70": [
+        "#bf616a",
+        "#bf616a"
+    ],
+    "color71": [
+        "#a3be8c",
+        "#a3be8c"
+    ],
+    "color72": [
+        "#ebcb8b",
+        "#ebcb8b"
+    ],
+    "color73": [
+        "#81a1c1",
+        "#81a1c1"
+    ],
+    "color74": [
+        "#b48ead",
+        "#b48ead"
+    ],
+    "color75": [
+        "#88c0d0",
+        "#88c0d0"
+    ],
+    "color76": [
+        "#eceff4",
+        "#eceff4"
+    ],
+    "color77": [
+        "#D35D6E",
+        "#D35D6E"
+    ],
+    "color78": [
+        "#DB7886",
+        "#DB7886"
+    ],
+    "color79": [
+        "#E8FFED",
+        "#E8FFED"
+    ],
+    "color80": [
+        "#4e4e4e",
+        "#4e4e4e"
+    ]
+    
+}
