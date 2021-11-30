@@ -4,19 +4,19 @@ if __name__ == "settings.theme":
     colors1 = {
         'color0': ['#252221', '#252221'],
         'color1': ['#c8baa4', '#c8baa4'],
-        'color2': ['#95a882', '#95a882'],
+        'color2': ['#859e82', '#859e82'],
         'color3': ['#3d3837', '#3d3837'],
         'color4': ['#d08b65', '#d08b65'],
         'color5': ['#c65f5f', '#c65f5f'],
         'color6': ['#728797', '#728797'],
-        'color7': ['#dcbb8c', '#dcbb8c'],
+        'color7': ['#d9b27c', '#d9b27c'],
         'color8': ['#998396', '#998396'],
         'color9': ['#829e9b', '#829e9b'],
         'color10': ['#5F5756', '#5F5756']
     }
 
     colors = {
-        'color0': ['#14171e', '#14171e'],
+        'color0': ['#191E27', '#14171e'],
         'color1': ['#E5E9F0', '#E5E9F0'],
         'color2': ['#A3BE8C', '#A3BE8C'],
         'color3': ['#4C566A', '#4C566A'],

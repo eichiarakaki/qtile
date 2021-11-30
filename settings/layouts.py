@@ -12,7 +12,7 @@ layout_conf = {
     'border_focus': colors['color10'][0],
     'border_normal': colors['color3'][0],
     'border_width': 0,
-    'margin': 5,
+    'margin': 10,
 }
 
 layouts = [

@@ -26,4 +26,4 @@ bring_front_click = False
 cursor_warp = True
 auto_fullscreen = True
 focus_on_window_activation = 'urgent'
-wmname = "Qtile God"# 'LG3D'
+wmname = "Nya! ichi ni san, nya! arigato~"# 'LG3D'

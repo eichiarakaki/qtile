@@ -1,6 +1,7 @@
 import subprocess
 import datetime
-
+from path import dunst_path 
+from os.path import join
 
 def jp_format():
     now = datetime.datetime.now()
@@ -44,7 +45,7 @@ def jp_format():
 
 def short_format():
     _, _, day, hour, minute = jp_format()
-    notify_format : str = 'notify-send "Time" "%s - %s:%s" -t 5000' % (day, hour, minute)
+    notify_format : str = 'dunstify "Date" "%s - %s:%s" -t 5000 -I %s' % (day, hour, minute, join(dunst_path, 'SettingsBlue.png'))
 
     subprocess.run(
         notify_format,
@@ -59,7 +60,7 @@ def workspace_notify():
     cmd: str = subprocess.getoutput("wmctrl -d").split('\n')  
     wk = list(filter(lambda x: '*' in x, cmd))[0][0]
     
-    notify_format : str = 'notify-send "Workspaces" "You are currently in workspace %s" -t 1500' % (int(wk) + 1)
+    notify_format : str = 'dunstify "Workspaces" "Switched to workspace %s" -t 1500 -I %s' % (int(wk) + 1, join(dunst_path, 'SettingsBlue.png'))
 
     subprocess.run(
         notify_format,

@@ -30,7 +30,7 @@ screens = [Screen(
             left = Gap(15),
             right = Gap(15),
         )]
-
+screens.clear() 
 """
 xrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
 

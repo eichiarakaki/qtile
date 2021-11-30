@@ -1,21 +1,22 @@
 use std::process::Command;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::collections::HashMap;
 use std::env;
-// Is a shit of code I know, but it works ;)
-
-/*
-1- hacer una lista para los layouts
-2- obtener el current layout
-3- shift al current layout y si no existe un siguiente layout
-   volver al inicio de la lista de layouts
-*/
-
+// Is a shit of code I know, but it works uwu
 
 fn send_notification(layout: String) {
-    let format = format!("Keyboard Layout: {}", layout.to_uppercase());
+    let format = format!("Layout: {}", layout.to_uppercase());
+    let config_dir = std::env::var("XDG_CONFIG_HOME")
+            .map(PathBuf::from)
+            .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap())
+            .join(".config")
+            .join("dunst"))
+            .join("icons")
+            .join("SettingsBlue.png");
 
-    Command::new("notify-send")
+    Command::new("dunstify")
+            .args(&["-I", &config_dir.into_os_string().into_string().unwrap()])
+            .arg("Keyboard Notification")
             .arg(format)
             .args(&["-t", "1000"])
             .spawn()
@@ -68,8 +69,14 @@ fn get_current_layout() -> String {
 
 
 fn main() {
-    let dir = Path::new("/home/eiji/.config/qtile/keyboardLayout/"); // I don't know how to make this dynamic ;(
-    assert!(env::set_current_dir(&dir).is_ok());
+    let config_dir = std::env::var("XDG_CONFIG_HOME")
+            .map(PathBuf::from)
+            .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap())
+            .join(".config")
+            .join("qtile"))
+            .join("keyboardLayout");
+
+    assert!(env::set_current_dir(&config_dir).is_ok());
 
     let my_layouts = HashMap::from([
         (0, "us".to_string()),
