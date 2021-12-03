@@ -1,0 +1,19 @@
+name: All scripts in one!
+version: "1.0"
+author: Eichi A. <justanunusualperson@gmail.com>
+about: Executes all Qtile calls
+args:
+    - eww:
+        short: e
+        long: eww
+        value_name: Eww
+        help: Eww configurations
+        takes_value: true
+    - option:
+        help: <Restart Eww server>
+        required: true
+        index: 1
+    - verbose:
+        short: v
+        multiple: true
+        help: Sets the level of verbosity
