@@ -1,6 +1,12 @@
-from custom.config import Key, Group
 from libqtile.command import lazy
-from settings.keys import modkey, keys
+from libqtile.config import (
+    Key, 
+    Group,
+)
+from settings.keys import (
+    modkey, 
+    keys,
+)
 
 
 # "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ"

@@ -1,6 +1,7 @@
-import sys
-from .path import qtile_settings
-sys.path.append(qtile_settings)
+from sys import path
+from os.path import join
+from .path import qtile_path
+path.append(join(qtile_path, 'settings'))
 
 from typing import Optional
 from libqtile.bar import (
@@ -59,14 +60,13 @@ class NewBar:
             return Bar(
                     self._widgets,
                     self._height,
-                    opacity=self._opacity,
-                    margin=[
+                    opacity = self._opacity,
+                    margin = [
                         self._y_position,
                         1980-self._x_position-self._width, # only for 1980x1080 screens
                         self._margin_bottom,
                         self._x_position 
-                        ]
-                    )   
+                    ])   
         else:
             return Gap(55)
                 

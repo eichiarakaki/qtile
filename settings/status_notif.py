@@ -1,13 +1,13 @@
-import subprocess
-import datetime
-from path import dunst_path 
+from datetime import datetime
 from os.path import join
+from path import dunst_path 
+from subprocess import PIPE, run, getoutput
 
 def jp_format():
-    now = datetime.datetime.now()
+    now = datetime.now()
 
     month = now.strftime('%m')
-    day = now.strftime("%d日")
+    day = now.strftime("%d")
     weekday = now.strftime('%A')
     hour = now.strftime("%H")
     minute = now.strftime("%M")
@@ -45,28 +45,28 @@ def jp_format():
 
 def short_format():
     _, _, day, hour, minute = jp_format()
-    notify_format : str = 'dunstify "Date" "%s - %s:%s" -t 5000 -I %s' % (day, hour, minute, join(dunst_path, 'SettingsBlue.png'))
+    notify_format: str = 'dunstify "Date" "%s日 - %s:%s" -t 5000 -I %s' % (day, hour, minute, join(dunst_path, 'SettingsBlue.png'))
 
-    subprocess.run(
+    run(
         notify_format,
         shell=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+        stdout=PIPE,
+        stderr=PIPE
     )
 
 
 def workspace_notify():
     """ Needs wmctrl """
-    cmd: str = subprocess.getoutput("wmctrl -d").split('\n')  
+    cmd: str = getoutput("wmctrl -d").split('\n')  
     wk = list(filter(lambda x: '*' in x, cmd))[0][0]
     
-    notify_format : str = 'dunstify "Workspaces" "Switched to workspace %s" -t 1500 -I %s' % (int(wk) + 1, join(dunst_path, 'SettingsBlue.png'))
+    notify_format: str = 'dunstify "Workspaces" "Switched to workspace %s" -t 1500 -I %s' % (int(wk) + 1, join(dunst_path, 'SettingsBlue.png'))
 
-    subprocess.run(
+    run(
         notify_format,
         shell=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+        stdout=PIPE,
+        stderr=PIPE
     )
 
 short_format()

@@ -1,22 +1,28 @@
-from libqtile import hook
-
-from settings.keys import modkey, keys
-from settings.groups import groups
-from settings.layouts import layouts, floating_layout
-from settings.widgets import widget_defaults, extension_defaults
+from libqtile.hook import subscribe
+from os.path import join
+from subprocess import call
+from settings.path import qtile_path
 from settings.screens import screens
 from settings.mouse import mouse
-from settings.path import qtile_path
+from settings.groups import groups
+from settings.keys import (
+    modkey, 
+    keys,
+)
+from settings.layouts import (
+    layouts, 
+    floating_layout,
+)
+from settings.widgets import (
+    widget_defaults, 
+    extension_defaults,
+)
 
-from os import path
-import subprocess
-from time import sleep
 
-@hook.subscribe.startup_once
+@subscribe.startup_once
 def autostart():
-    subprocess.call(['python', path.join(qtile_path, 'autostart.py')])
-    #sleep(5)# Tiempo de espera (para que se inicie el daemon de los widgets)
-    #subprocess.call([path.join(qtile_path, 'scripts', 'bar_complements')])
+    call([join(qtile_path, 'startup.sh')])
+
 
 main = None
 dgroups_key_binder = None
@@ -26,4 +32,4 @@ bring_front_click = False
 cursor_warp = True
 auto_fullscreen = True
 focus_on_window_activation = 'urgent'
-wmname = "Nya! ichi ni san, nya! arigato~"# 'LG3D'
+wmname = "Customized Qtile"

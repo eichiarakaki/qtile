@@ -1,30 +1,23 @@
 from libqtile.widget import (
     Sep, 
-    GroupBox, 
+    # GroupBox, 
     CurrentLayoutIcon,
-    TextBox, 
-    Spacer, 
-    GenPollText,
+    # TextBox, 
+    # Spacer, 
+    # GenPollText,
 )
-
-from settings.theme import colors
 from custom.windowname import WindowName as CustomWindowName
 from settings.path import qtile_path
-from os import path, system
-import datetime
+from os import path
+from settings.theme import colors
 
 BGMGR = 'color0'
 FGMGR = 'color1'
 
-def base(fg=FGMGR, bg=BGMGR, font='Fira Code'): 
-    return {
-        'foreground': colors[fg],
-        'background': colors[bg],
-        'font': font
-    }
+""" Useless Code, take this code as an example
+import datetime
 
-def separator(padding=5, bg=BGMGR):
-    return Sep(**base(bg=bg), linewidth=0, padding=padding)
+
 
 
 def texts(fg=FGMGR, bg=BGMGR, fontsize=16, text="?", padding=3, font='Fira Code'):
@@ -120,25 +113,32 @@ def workspaces():
 #         separator(padding=12, bg=BGMGR),
 #         text(fg='color6', bg=BGMGR, fontsize=16, text='北', padding=3),
 #     ]
+"""
+
+def base(fg=FGMGR, bg=BGMGR, font='Fira Code'): 
+    return {
+        'foreground': colors[fg],
+        'background': colors[bg],
+        'font': font
+    }
+
+def separator(padding=5, bg=BGMGR):
+    return Sep(**base(bg=bg), linewidth=0, padding=padding)
 
 bar_widgets = [
-    separator(padding=8, bg=BGMGR),
+    separator(padding=15, bg=BGMGR),
 
     CurrentLayoutIcon(
-        custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-color-deep-mixed")],
+        custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-cyan")],
         **base(bg=BGMGR, fg=FGMGR),
         padding=0,
         scale=0.37,
         fontsize=0.5
     ),
     #----
-    *workspaces(),
-    separator(padding=305, bg=BGMGR),
-   
-#    text(fg='color3', bg=BGMGR, text='|', fontsize=10, padding=-2),
-#    separator(padding=10, bg=BGMGR),
-#
-#   *widgets(),
+
+    # *workspaces(),
+    separator(padding=110, bg=BGMGR),
     
     CustomWindowName(
         **base(),
@@ -146,21 +146,6 @@ bar_widgets = [
         fontsize=13,
         empty_group_string='Desktop',
     ),
-
-    # MERGE THE SCRIPTS - tmr
-
-    #GenPollText(
-    #    **base(),
-    #    func=lambda: short_format(),
-    #    update_interval=20,
-    #    fontsize=13,
-    #    ),
-    
-   separator(padding=15, bg=BGMGR),
-]
-
-secondary_widgets = [
-    Spacer(**base()),
 ]
 
 widget_defaults = {

@@ -16,7 +16,7 @@ if __name__ == "settings.theme":
     }
 
     colors = {
-        'color0': ['#191E27', '#14171e'],
+        'color0': ['#10171E', '#10171E'],
         'color1': ['#E5E9F0', '#E5E9F0'],
         'color2': ['#A3BE8C', '#A3BE8C'],
         'color3': ['#4C566A', '#4C566A'],

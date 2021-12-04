@@ -1,6 +1,8 @@
 from os.path import join, expanduser
 
-qtile_path = join(expanduser('~'), ".config", "qtile")
-qtile_settings = join(qtile_path, 'settings')
-picom_path = join(expanduser('~'), '.config', 'picom')
-dunst_path = join(expanduser('~'), '.config', 'dunst', 'icons')
+
+CONFIG = join(expanduser('~'), '.config')
+
+qtile_path = join(CONFIG, 'qtile')
+picom_path = join(CONFIG, 'picom')
+dunst_path = join(CONFIG, 'dunst')

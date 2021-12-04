@@ -4,14 +4,9 @@ import getpass
 
 USERNAME = getpass.getuser()
 
-def gen(text : str, sep : str) -> str:
+def gen(text: str, sep: str) -> str:
     sep = text.find(sep)
     return text[:sep] if sep != -1 else text
-
-
-def center_str(text : str, max_chars: int) -> str:
-    return text.center(max_chars, ' ')
-
 
 def exclude_titles(title : str) -> bool:
     """Everything with X or the full path"""
@@ -88,11 +83,11 @@ class WindowName(base._TextBox):
         just_title = gen(full_string, ' - ')
 
         if exclude_titles(just_title):
-            self.text = center_str('Desktop', self.max_chars)
+            self.text = 'Desktop'.center(self.max_chars, ' ')
         elif len(just_title) > self.max_chars > 0:
             trunc_string = just_title[: self.max_chars] + "…"
             self.text = trunc_string
         else:
-            self.text = center_str(just_title, self.max_chars)
+            self.text = just_title.center(self.max_chars, ' ')
         
         self.bar.draw()
