@@ -1,3 +1,4 @@
+"""                                         Most recently made configuration
 from libqtile.widget import (
     Sep, 
     # GroupBox, 
@@ -11,8 +12,12 @@ from settings.path import qtile_path
 from os import path
 from settings.theme import colors
 
-BGMGR = 'color0'
-FGMGR = 'color1'
+
+BGMGR = 'background'
+FGMGR = 'foreground'
+"""
+
+
 
 """ Useless Code, take this code as an example
 import datetime
@@ -115,6 +120,8 @@ def workspaces():
 #     ]
 """
 
+
+"""                                 Most recently made configuration
 def base(fg=FGMGR, bg=BGMGR, font='Fira Code'): 
     return {
         'foreground': colors[fg],
@@ -147,6 +154,7 @@ bar_widgets = [
         empty_group_string='Desktop',
     ),
 ]
+"""
 
 widget_defaults = {
     'font': 'Fira Code',

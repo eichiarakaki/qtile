@@ -35,7 +35,8 @@ from settings.keys import (
 # "九"
 
 
-all_groups = [("一", {'layout': 'max'}),
+all_groups = [
+              ("一", {'layout': 'max'}),
               ("二", {'layout': 'max'}),
               ("三", {'layout': 'bsp'}),
               ("四", {'layout': 'bsp'}),
@@ -43,7 +44,7 @@ all_groups = [("一", {'layout': 'max'}),
               ("六", {'layout': 'bsp'}),
               ("七", {'layout': 'bsp'}),
               ("八", {'layout': 'bsp'}),
-              ("九", {'layout': 'max'})
+              ("九", {'layout': 'max'}),
             ]
 
 groups = [Group(name, **kwargs) for name, kwargs in all_groups]

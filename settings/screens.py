@@ -8,8 +8,9 @@ from libqtile.bar import (
 from libqtile.log_utils import logger
 from typing import Optional
 from settings import mkbar
+"""Most recently made configuration
 from settings.widgets import bar_widgets
-
+"""
 
 def main_bar() -> Optional[BarType]:
     bar = mkbar.NewBar()

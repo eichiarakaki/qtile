@@ -8,10 +8,11 @@ from libqtile.layout import (
 from libqtile.config import Match
 from settings.theme import colors
 
+
 layout_conf = {
-    'border_focus': colors['color10'][0],
-    'border_normal': colors['color3'][0],
-    'border_width': 0,
+    'border_focus': colors['borders'][0],
+    'border_normal': colors['borders'][1],
+    'border_width': 0, # Border width null
     'margin': 10,
 }
 
@@ -23,7 +24,7 @@ layouts = [
 ]
 
 floating_layout = Floating(
-    float_rules=[
+    float_rules = [
         *Floating.default_float_rules,
         Match(wm_class='confirmreset'),
         Match(wm_class='makebranch'),

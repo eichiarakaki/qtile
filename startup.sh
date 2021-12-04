@@ -13,7 +13,7 @@ brightness () {
     current_hour=$(date +%H)
 
     redshift -x
-    if [ $current_hour -lt 13 ]; then
+    if [ $current_hour -lt 12 ]; then
         redshift -O 3000
         brightnessctl set 30%
     else
