@@ -8,10 +8,10 @@ from os.path import(
 
 def load_theme():
     file_name = 'default'
-    theme_dir = 'themes'
+    dir_name = 'themes'
     theme_path = join(
         qtile_path, 
-        theme_dir, 
+        dir_name, 
         '%s.json' % file_name
     )
 

@@ -74,7 +74,7 @@ fn main() {
             .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap())
             .join(".config")
             .join("qtile"))
-            .join("keyboardLayout");
+            .join("keyboard");
 
     assert!(env::set_current_dir(&config_dir).is_ok());
 
