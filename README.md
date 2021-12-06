@@ -1,1 +1,1 @@
-### This file will be written when it has the slightest decency of the files.
+### this file will be written when the repository has the slightest decency.
