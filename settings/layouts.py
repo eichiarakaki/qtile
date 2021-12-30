@@ -8,8 +8,7 @@ from libqtile.layout import (
 from libqtile.config import Match
 from settings.theme import colors
 
-
-layout_conf = {
+layout_cfg = {
     'border_focus': colors['borders'][0],
     'border_normal': colors['borders'][1],
     'border_width': 0, # Border width null
@@ -17,10 +16,10 @@ layout_conf = {
 }
 
 layouts = [
-    Max(),
-    MonadTall(**layout_conf),
-    MonadWide(**layout_conf),
-    Bsp(**layout_conf),
+    Max(**layout_cfg),
+    MonadTall(**layout_cfg),
+    MonadWide(**layout_cfg),
+    Bsp(**layout_cfg),
 ]
 
 floating_layout = Floating(
@@ -33,5 +32,5 @@ floating_layout = Floating(
         Match(title='branchdialog'),
         Match(title='pinentry'),
     ],
-    **layout_conf,
+    **layout_cfg,
 )

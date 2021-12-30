@@ -14,7 +14,7 @@ from settings.widgets import bar_widgets
 
 def main_bar() -> Optional[BarType]:
     bar = mkbar.NewBar()
-    bar.widget(bar_widgets) # widgets
+    # bar.widget(bar_widgets) # widgets
     bar.opacity(1.0) # opacity
     bar.geometry(600, 45) # width / height
     bar.positions(690, 10) # X / Y

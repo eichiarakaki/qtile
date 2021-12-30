@@ -1,6 +1,6 @@
 from path import qtile_path
 from json import load
-from os.path import(
+from os.path import (
     join, 
     isfile,
 )

@@ -31,6 +31,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([modkey], 'Tab', lazy.next_layout()),
     #([modkey, "shift"], "Tab", lazy.prev_layout()),
 
+
+    ([modkey, 'shift'], 'o', lazy.layout.reset()),
+
     # Kill window
     ([modkey], 'w', lazy.window.kill()),
 

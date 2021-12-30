@@ -9,9 +9,6 @@ from libqtile.bar import (
     Bar, 
     Gap,
 )
-from notify import send as notify_send
-
-
 
 class __Error(Exception):
     """Base class for other exceptions"""
@@ -48,10 +45,7 @@ class NewBar:
         flag = True
         for _, (k, v) in enumerate(vars(self).items()):
             if v == None:
-                notify_send('System', _ConfigError(f'You have not assigned a value to {k}'),
-                             icon='error', expiration_time=6)
                 flag = False
-
         return flag
 
 

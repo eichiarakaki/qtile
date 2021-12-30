@@ -36,15 +36,15 @@ from settings.keys import (
 
 
 all_groups = [
-              ("一", {'layout': 'max'}),
-              ("二", {'layout': 'max'}),
-              ("三", {'layout': 'bsp'}),
-              ("四", {'layout': 'bsp'}),
-              ("五", {'layout': 'bsp'}),
-              ("六", {'layout': 'bsp'}),
-              ("七", {'layout': 'bsp'}),
-              ("八", {'layout': 'bsp'}),
-              ("九", {'layout': 'max'}),
+              ('一', {'layout': 'monadtall'}),
+              ('二', {'layout': 'monadtall'}),
+              ('三', {'layout': 'monadtall'}),
+              ('四', {'layout': 'monadtall'}),
+              ('五', {'layout': 'bsp' }),
+              ('六', {'layout': 'bsp' }),
+              ('七', {'layout': 'bsp' }),
+              ('八', {'layout': 'bsp' }),
+              ('九', {'layout': 'monadtall'}),
             ]
 
 groups = [Group(name, **kwargs) for name, kwargs in all_groups]
