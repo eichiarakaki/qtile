@@ -1,19 +1,26 @@
-import "./shell"
 import 
     nimpy, # https://github.com/yglukhov/nimpy
-    os
+    osproc,
+    os,
+    "./shell",
+    "./paths" 
 
 proc notifyDaemon(): string = 
-    
-proc sendNotify(
-    title: string, 
-    subtitle: string, 
-    icon_path: string, 
-    time_out: int = 5,
+    if execCmdEx("whereis dunst").exitCode == 1:
+        return "dunst"
+    else: 
+        return "notify-send"
+
+proc notifySend*(
+    title: string = "System", 
+    subtitle: string = "Notification",
+    icon_path: string = QTILE_PATH / "icons" / "Settings.png", 
+    time_out: int = 5000,
 ) {.exportpy.} =
-    const default_notification: string = "Keyboard Notification"
-    shell:
-
-
-
-
+    case notifyDaemon():
+        of "dunst":
+            shell:
+                dunstify "\""($title)"\"" "\""($subtitle)"\"" -t ($time_out) -I "\""($icon_path)"\""
+        of "notify-send":
+            shell:
+                "notify-send" "\""($title)"\"" "\""($subtitle)"\"" -t ($time_out)
