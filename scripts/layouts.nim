@@ -3,39 +3,32 @@ import
     "./paths.nim"
 import 
     osproc, 
-    strformat
+    strformat,
+    strutils
+
+const COMMAND = "setxkbmap"
 
 
-let KEYBOARDS = @["us", "es"]
-
-
-proc currentLayout(): string {.inline.} = 
-    execCmdEx(fmt"{KEYBOARD_SCRIPT()} print %e").output
-
-    
+let KEYBOARDS: seq[string] = @["us", "es"]
 proc next_layout(): string =
-    let cy: string = currentLayout()
-    echo cy
+    let current_l: string = execCmdEx(fmt"{KEYBOARD_SCRIPT()} print %e").output
     var next_l: string
-    
-    echo KEYBOARDS[0]
-    echo KEYBOARDS[1]
 
     try:
-        echo "try"
-        next_l = KEYBOARDS[KEYBOARDS.find(cy) + 1]
-        echo KEYBOARDS.find(cy)
+        next_l = KEYBOARDS[KEYBOARDS.find(current_l.strip()) + 1]
     except:
-        echo "except"
         next_l = KEYBOARDS[0]
     finally:
-        echo "finally"
         return next_l
 
 
+proc set_layout() =
+        shell:
+            ($COMMAND) ($next_layout())
+
+
 proc main() =
-    let a = next_layout()
-    echo a
+    set_layout()
 
 
 main()
