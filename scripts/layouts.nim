@@ -1,8 +1,9 @@
 import 
     "./shell", # Vindaar's module.
-    "./paths.nim",
+    "./path",
     "./notify",
-    osproc, 
+    osproc,
+    os,
     strformat,
     strutils
 
@@ -21,14 +22,12 @@ proc next_layout(): string =
         return next_l
 
 
-proc set_layout() =
-    let nl = next_layout()
-    shell:
-        ($COMMAND) ($nl)
-    notifySend(title = "Keyboard Notification", subtitle = fmt"Layout: {nl}", time_out = 1000)
-
-proc main() =
-    set_layout()
-
-
-main()
+let nl = next_layout()
+shell:
+    ($COMMAND) ($nl)
+notifySend(
+    title = "Keyboard Notification", 
+    subtitle = fmt"Layout: {nl.toUpperAscii}", 
+    time_out = 1000,
+    icon = QTILE_PATH / "icons" / "SettingsOrange.png"
+)

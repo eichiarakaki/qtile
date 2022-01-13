@@ -3,6 +3,11 @@ from libqtile.command import lazy
 from settings.path import qtile_path
 from os.path import join
 
+from call import (
+    launcher as launch_rofi,
+    keyboard_layout as next_keyboard
+)
+
 modkey = 'mod4'
 
 
@@ -46,7 +51,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     
     # ------------ App Configs ------------
     # Menu
-    ([modkey], 'm', lazy.spawn(join(qtile_path, 'scripts', 'launcher.sh'))),
+    ([modkey], 'm', lazy.spawn(join(qtile_path, "scripts", "bin", "launcher"))),
 
     # Window Nav
     #([modkey, "shift"], "m", lazy.spawn("rofi -show")),
@@ -65,7 +70,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([modkey], 's', lazy.spawn('flameshot gui')),
 
     # keyboard layouts
-    ([modkey], 'space', lazy.spawn(join(qtile_path, 'keyboard', 'layouts'))),
+    ([modkey], 'space', lazy.spawn(join(qtile_path, "scripts", "bin", "layouts"))),
 
     #--------------- EWW Widgets ---------------
 
