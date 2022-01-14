@@ -1,6 +1,7 @@
 import
     osproc,
     os,
+    strformat,
     "./shell",
     "./path" 
 
@@ -18,8 +19,10 @@ proc notifySend*(
 ) =
     case notifyDaemon():
         of "dunst":
+            let cmd = &"dunstify \"{title}\" \"{subtitle}\" -t {time_out} -I \"{icon}\""
             shell:
-                dunstify "\'"($title)"\'" "\'"($subtitle)"\'" -t ($time_out) -I "\'"($icon)"\'"
+                ($cmd)
         of "notify-send":
+            let cmd = &"notify-send \"{title}\" \"{subtitle}\" -t {time_out}"
             shell:
-                "notify-send" "\""($title)"\"" "\""($subtitle)"\"" -t ($time_out)
+                ($cmd)
