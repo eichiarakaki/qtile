@@ -5,7 +5,6 @@ from libqtile.config import (
 from libqtile.command import lazy
 from settings.keys import modkey
 
-
 mouse = [
     Drag(
         [modkey],
@@ -19,5 +18,8 @@ mouse = [
         lazy.window.set_size_floating(),
         start=lazy.window.get_size()
     ),
-    Click([modkey], "Button2", lazy.window.bring_to_front())
+    Click([modkey], 
+         "Button2", 
+         lazy.window.toggle_focus_floating()
+         )
 ]

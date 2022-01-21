@@ -31,5 +31,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = True
 auto_fullscreen = True
-focus_on_window_activation = 'urgent'
-wmname = "Customized Qtile"
+focus_on_window_activation = 'smart'
+# java app don't work correctly if the wmname isn't set to a name that happens to
+# be on java's whitelist (LG3D is a 3D non-reparenting WM written in java).
+wmname = 'LG3D'
