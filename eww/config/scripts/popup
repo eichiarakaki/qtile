@@ -1,0 +1,30 @@
+#!/bin/sh
+
+calendar(){
+LOCK_FILE="$HOME/.cache/eww-calendar.lock"
+EWW_BIN="$HOME/.config/qtile/eww/eww"
+EWW_DIR="$HOME/.config/qtile/eww/config/bar"
+
+run() {
+    ${EWW_BIN} open calendar -c ${EWW_DIR}
+}
+
+# Open widgets
+if [[ ! -f "$LOCK_FILE" ]]; then
+    touch "$LOCK_FILE"
+    run
+else
+    ${EWW_BIN} -c ${EWW_DIR} close calendar
+    rm "$LOCK_FILE"
+fi
+}
+
+if [ "$1" = "launcher" ]; then
+$HOME/.local/bin/launcher
+elif [ "$1" = "wifi" ]; then
+kitty -e nmtui
+elif [ "$1" = "audio" ]; then
+pavucontrol
+elif [ "$1" = "calendar" ]; then
+calendar
+fi

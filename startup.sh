@@ -1,7 +1,7 @@
 #!/bin/bash
 
 to_execute () {
-    $(pwd)/Eww/eww daemon
+    #$(pwd)/Eww/eww daemon
     picom &
     udiskie &
     $HOME/.fehbg
