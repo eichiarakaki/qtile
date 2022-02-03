@@ -12,15 +12,15 @@
 ;; Workspaces ;;
 (defwidget workspaces []
 	(literal :content workspace))
-(deflisten workspace "./config/scripts/workspace")
+(deflisten workspace "../scripts/workspace")
 
 ;; Battery ;;
 ;;;;	battery	;;;;
 (defwidget bat []
 	(box	:orientation "v"	:space-evenly "false"
 	(label	:class "bat"		:halign "end"		:text battery	:tooltip "Battery: ${battery-cappacity}%")))
-(defpoll battery			:interval "10m"	"./config/scripts/battery icon")
-(defpoll battery-cappacity	:interval "5m"	"scripts/battery percent")
+(defpoll battery			:interval "10m"	"../scripts/battery icon")
+(defpoll battery-cappacity	:interval "5m"	"../scripts/battery percent")
 
 ;; Brightness ;;
 (defwidget bright []
@@ -38,8 +38,8 @@
  (box		:orientation "v"  :tooltip wifi-name
  (button	:onclick "./config/scripts/popup wifi" :class "wifi-icon" wifi-icon)))
 
-(defpoll wifi-icon :interval "1m" "./config/scripts/wifi icon")
-(defpoll wifi-name :interval "10m" "./config/scripts/wifi name")
+(defpoll wifi-icon :interval "1m" "../scripts/wifi icon")
+(defpoll wifi-name :interval "10m" "../scripts/wifi name")
 
 ;; Volume ;;
 (defwidget volum []
