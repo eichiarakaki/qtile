@@ -21,5 +21,5 @@ mouse = [
     Click([modkey], 
          "Button2", 
          lazy.window.toggle_focus_floating()
-         )
+    )
 ]

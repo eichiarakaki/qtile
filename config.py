@@ -13,10 +13,11 @@ from settings.layouts import (
     layouts, 
     floating_layout,
 )
-from settings.widgets import (
-    widget_defaults, 
-    extension_defaults,
-)
+
+# from settings.widgets import (
+#     widget_defaults, 
+#     extension_defaults,
+# )
 
 
 @subscribe.startup_once

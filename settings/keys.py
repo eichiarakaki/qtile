@@ -3,11 +3,6 @@ from libqtile.command import lazy
 from settings.path import qtile_path
 from os.path import join
 
-from call import (
-    launcher as launch_rofi,
-    keyboard_layout as next_keyboard
-)
-
 modkey = 'mod4'
 
 
@@ -78,7 +73,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([modkey], 'e', lazy.spawn(join(qtile_path, 'scripts', 'close_sidebar'))),
 
     # Restart daemon
-    ([modkey], 'F2', lazy.spawn(f'python3 {join(qtile_path, "scripts", "restart_eww.py")}')),
+    # ([modkey], 'F2', lazy.spawn(f'python3 {join(qtile_path, "scripts", "restart_eww.py")}')),
 
     # ------------ Hardware Configs ------------
 

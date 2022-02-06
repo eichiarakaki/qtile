@@ -1,12 +1,14 @@
 #!/bin/bash
 
+qtile_path=$HOME/.config/qtile
+
 to_execute () {
-    $(pwd)/eww/eww daemon
     picom &
     udiskie &
     $HOME/.fehbg
     dunst &
-    playerctld daemon &
+    # playerctld daemon &
+    $qtile_path/initialize_eww.sh
 }
 
 brightness () {

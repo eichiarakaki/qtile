@@ -56,7 +56,3 @@ if connected_monitors > 1:
             left=Gap(5), 
             right=Gap(5),
         ))
-
-# ------------------------------------------------------------ #
-
-#screens.clear()
