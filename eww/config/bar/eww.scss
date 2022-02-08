@@ -6,17 +6,17 @@
   all: unset;
 }
 
-$background: #1A1B26;
-$foreground: #A9B1D6;
-$black: #16161E;
+$background: #0D1219;
+$foreground: #ffffff;
+$black: #0D1219;
 $gray: #24283B;
 $white: $foreground;
-$blue: #7AA2F7;
-$cyan: #7DCFFF;
-$magenta: #BB9AF7;
-$red: #F7768E;
-$yellow: #E0AF68;
-$green: #73DACA;
+$blue: #a3b8ef;
+$cyan: #9CD6E5;
+$magenta: #ccaced;
+$red: #f9929b;
+$yellow: #fbdf90;
+$green: #9CE5CC;
 
 // EWW BAR
 .eww_bar{
@@ -25,7 +25,7 @@ $green: #73DACA;
 
 // Launcher
 .launcher_icon{
-    color: $cyan;
+    color: $blue;
     font-family: "Font Awesome 5 Free";
     font-size: 1.7em;
     padding: .6rem 0 .6rem 0;

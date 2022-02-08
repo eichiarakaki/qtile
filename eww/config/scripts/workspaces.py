@@ -46,6 +46,7 @@ ws_occupied_ns = wml.stdout.decode("utf-8").splitlines()
 ws_occupied_ns = [ws_occupied(i) for i in ws_occupied_ns]
  # -------
 
+# 1..9 if True else Blank
 ws = {
     1: (ws_names[0], False if not 1 in ws_occupied_ns else True, True if ws_focused_n == 1 else False),
     2: (ws_names[1], False if not 2 in ws_occupied_ns else True, True if ws_focused_n == 2 else False),
@@ -58,12 +59,57 @@ ws = {
     9: (ws_names[8], False if not 9 in ws_occupied_ns else True, True if ws_focused_n == 9 else False),
 }
 
+
+def no_falses(wss):
+    if wss != True:
+        return True
+    else:
+        return ''
+'''
 print('names:', ws_names)
 print('focused:', int(ws_focused_n) + 1)
 print('ws_occupied:', ws_occupied_ns)
 
 for i, (n, k, v) in ws.items():
     print(i, n, k, v)
+'''
 
-
-# print(f'(box	:class \"works\" :orientation \"v\"	:halign \"center\"	:valign \"start\"	 :space-evenly \"false\" :spacing \"-5\" (button :onclick \"wmctrl -s 0\"	:class	\"0{ws.get(1)[1]}{ws.get(1)[2]}\"	\"\") (button :onclick \"bspc desktop -f $ws2\"	:class \"$un$o2$f2\"	 \"\") (button :onclick \"bspc desktop -f $ws3\"	:class \"$un$o3$f3\" \"\") (button :onclick \"bspc desktop -f $ws4\"	:class \"$un$o4$f4\"	\"\") (button :onclick \"bspc desktop -f $ws5\"	:class \"$un$o5$f5\" \"\" )  (button :onclick \"bspc desktop -f $ws6\"	:class \"$un$o6$f6\" \"\") (button :onclick \"bspc desktop -f $ws7\"	:class \"$un$o7$f7\" \"\") (button :onclick \"bspc desktop -f $ws8\"	:class \"$un$o8$f8\" \"\") (button :onclick \"bspc desktop -f $ws9\"	:class \"$un$o9$f9\" \"\"))')
+print('(box	:class \"works\" :orientation \"v\"	:halign \"center\"	:valign \"start\"	 :space-evenly \"false\" :spacing \"-5\" (button :onclick \"wmctrl -s 0\"	:class	\"0%s%s\"	\"%s\") (button :onclick \"wmctrl -s 1\"	:class \"0%s%s\"	 \"%s\") (button :onclick \"wmctrl -s 2\"	:class \"0%s%s\" \"%s\") (button :onclick \"wmctrl -s 3\"	:class \"0%s%s\"	\"%s\") (button :onclick \"wmctrl -s 4\"	:class \"0%s%s\" \"%s\" )  (button :onclick \"wmctrl -s 5\"	:class \"0%s%s\" \"%s\") (button :onclick \"wmctrl -s 6\"	:class \"0%s%s\" \"%s\") (button :onclick \"wmctrl -s 7\"	:class \"0%s%s\" \"%s\") (button :onclick \"wmctrl -s 8\"	:class \"0%s%s\" \"%s\"))'
+% (
+    1 if ws.get(1)[1] == True else '',
+    1 if ws.get(1)[2] == True else '',
+    ws.get(1)[0],
+    
+    2 if ws.get(2)[1] == True else '',
+    2 if ws.get(2)[2] == True else '',
+    ws.get(2)[0],
+    
+    3 if ws.get(3)[1] == True else '',
+    3 if ws.get(3)[2] == True else '',
+    ws.get(3)[0],
+    
+    4 if ws.get(4)[1] == True else '',
+    4 if ws.get(4)[2] == True else '',
+    ws.get(4)[0],
+    
+    5 if ws.get(5)[1] == True else '',
+    5 if ws.get(5)[2] == True else '',
+    ws.get(5)[0],
+    
+    6 if ws.get(6)[1] == True else '',
+    6 if ws.get(6)[2] == True else '',
+    ws.get(6)[0],
+    
+    7 if ws.get(7)[1] == True else '',
+    7 if ws.get(7)[2] == True else '',
+    ws.get(7)[0],
+    
+    8 if ws.get(8)[1] == True else '',
+    8 if ws.get(8)[2] == True else '',
+    ws.get(8)[0],
+    
+    9 if ws.get(9)[1] == True else '',
+    9 if ws.get(9)[2] == True else '',
+    ws.get(9)[0],
+    
+    ))

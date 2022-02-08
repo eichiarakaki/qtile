@@ -12,7 +12,7 @@
 ;; Workspaces ;;
 (defwidget workspaces []
 	(literal :content workspace))
-(deflisten workspace "../scripts/workspace")
+(deflisten workspace "python3 ../scripts/workspaces.py")
 
 ;; Battery ;;
 ;;;;	battery	;;;;
