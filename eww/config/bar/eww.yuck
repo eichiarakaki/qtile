@@ -12,14 +12,14 @@
 ;; Workspaces ;;
 (defwidget workspaces []
 	(literal :content workspace))
-(deflisten workspace "python3 ../scripts/workspaces.py")
+(deflisten workspace "../scripts/workspaces")
 
 ;; Battery ;;
 ;;;;	battery	;;;;
 (defwidget bat []
 	(box	:orientation "v"	:space-evenly "false"
 	(label	:class "bat"		:halign "end"		:text battery	:tooltip "Battery: ${battery-cappacity}%")))
-(defpoll battery			:interval "10m"	"../scripts/battery icon")
+(defpoll battery			:interval "5m"	"../scripts/battery icon")
 (defpoll battery-cappacity	:interval "1m"	"../scripts/battery percent")
 
 ;; Brightness ;;

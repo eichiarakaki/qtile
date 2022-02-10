@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import subprocess
 from typing import Dict, List, Tuple
 
@@ -59,12 +61,6 @@ ws = {
     9: (ws_names[8], False if not 9 in ws_occupied_ns else True, True if ws_focused_n == 9 else False),
 }
 
-
-def no_falses(wss):
-    if wss != True:
-        return True
-    else:
-        return ''
 '''
 print('names:', ws_names)
 print('focused:', int(ws_focused_n) + 1)

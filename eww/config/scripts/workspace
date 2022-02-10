@@ -14,6 +14,10 @@ ws9=9
 # Unoccupied
 un="0"
 
+# wmctrl
+wmd=$(wmctrl -d)
+wml=$(wmctrl -l)
+
 # check if Occupied
 o1=$(bspc query -D -d .occupied --names | grep "$ws1" )
 o2=$(bspc query -D -d .occupied --names | grep "$ws2" )
