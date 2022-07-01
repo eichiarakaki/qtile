@@ -8,13 +8,12 @@ from libqtile.bar import (
 from libqtile.log_utils import logger
 from typing import Optional
 from settings import mkbar
-"""Most recently made configuration
 from settings.widgets import bar_widgets
-"""
+
 
 def main_bar() -> Optional[BarType]:
     bar = mkbar.NewBar()
-    # bar.widget(bar_widgets) # widgets
+    bar.widget(bar_widgets) # widgets
     bar.opacity(1.0) # opacity
     bar.geometry(600, 45) # width / height
     bar.positions(690, 10) # X / Y
@@ -22,15 +21,14 @@ def main_bar() -> Optional[BarType]:
 
     return bar.assembler()
 
-"""
+
 screens: list = [Screen(
             top = main_bar(),
             bottom = Gap(15),
             left = Gap(15),
             right = Gap(15),
         )]
-"""
-screens: list = []
+
 
 
 xrandr = 'xrandr | grep -w "connected" | cut -d ' ' -f 2 | wc -l'

@@ -1,11 +1,10 @@
-"""                                         Most recently made configuration
 from libqtile.widget import (
     Sep, 
-    # GroupBox, 
+    GroupBox, 
     CurrentLayoutIcon,
-    # TextBox, 
-    # Spacer, 
-    # GenPollText,
+    TextBox, 
+    Spacer, 
+    GenPollText,
 )
 from custom.windowname import WindowName as CustomWindowName
 from settings.path import qtile_path
@@ -15,17 +14,11 @@ from settings.theme import colors
 
 BGMGR = 'background'
 FGMGR = 'foreground'
-"""
-
-
-
-""" Useless Code, take this code as an example
-import datetime
 
 
 
 
-def texts(fg=FGMGR, bg=BGMGR, fontsize=16, text="?", padding=3, font='Fira Code'):
+def texts(fg=FGMGR, bg=BGMGR, fontsize=16, text="?", padding=3, font='Cascadia Mono PL'):
     return TextBox(
         **base(fg=fg, bg=bg, font=font),
         fontsize=fontsize,
@@ -118,10 +111,9 @@ def workspaces():
 #         separator(padding=12, bg=BGMGR),
 #         text(fg='color6', bg=BGMGR, fontsize=16, text='北', padding=3),
 #     ]
-"""
 
 
-"""                                 Most recently made configuration
+
 def base(fg=FGMGR, bg=BGMGR, font='Fira Code'): 
     return {
         'foreground': colors[fg],
@@ -144,7 +136,7 @@ bar_widgets = [
     ),
     #----
 
-    # *workspaces(),
+    *workspaces(),
     separator(padding=110, bg=BGMGR),
     
     CustomWindowName(
@@ -154,10 +146,10 @@ bar_widgets = [
         empty_group_string='Desktop',
     ),
 ]
-"""
+
 
 widget_defaults = {
-    'font': 'Fira Code',
+    'font': 'Cascadia Mono PL',
     'fontsize': 14,
     'padding': 1,
 }
