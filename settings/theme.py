@@ -24,3 +24,24 @@ def load_theme():
 
 if __name__ == 'settings.theme':
     colors = load_theme()
+
+    FGMGR   = colors['foreground'][0]
+    BGMGR   = colors['background'][0]
+    BLACK   = colors['black'][0]
+    RED     = colors['red'][0]
+    GREEN   = colors['green'][0]
+    YELLOW  = colors['yellow'][0]
+    BLUE    = colors['blue'][0]
+    MAGENTA = colors['magenta'][0]
+    CYAN    = colors['cyan'][0]
+    WHITE   = colors['white'][0]
+    BORDERS = colors['borders'][0]
+
+    SOFT_RED     = colors['red'][1]
+    SOFT_GREEN   = colors['green'][1]
+    SOFT_YELLOW  = colors['yellow'][1]
+    SOFT_BLUE    = colors['blue'][1]
+    SOFT_MAGENTA = colors['magenta'][1]
+    SOFT_CYAN    = colors['cyan'][1]
+    SOFT_WHITE   = colors['white'][1]
+    SOFT_BORDERS = colors['borders'][1]

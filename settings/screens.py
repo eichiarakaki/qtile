@@ -1,23 +1,21 @@
 import subprocess
+
 from libqtile.config import Screen
-from libqtile.bar import (
-    Gap, 
-    BarType, 
-    # Bar,
-)
+from libqtile.bar import Gap, BarType
 from libqtile.log_utils import logger
 from typing import Optional
 from settings import mkbar
 from settings.widgets import bar_widgets
 
 
+
 def main_bar() -> Optional[BarType]:
     bar = mkbar.NewBar()
     bar.widget(bar_widgets) # widgets
     bar.opacity(1.0) # opacity
-    bar.geometry(600, 45) # width / height
-    bar.positions(690, 10) # X / Y
-    bar.margin(20)
+    bar.geometry(1950, 45) # width / height
+    bar.positions(15, 10) # X / Y
+    bar.margin(10)
 
     return bar.assembler()
 

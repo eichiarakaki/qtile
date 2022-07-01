@@ -6,11 +6,12 @@ from libqtile.layout import (
     Floating,
 )
 from libqtile.config import Match
-from settings.theme import colors
+from settings.theme import BORDERS, SOFT_BORDERS
+
 
 layout_cfg = {
-    'border_focus': colors['borders'][0],
-    'border_normal': colors['borders'][1],
+    'border_focus': BORDERS,
+    'border_normal': SOFT_BORDERS,
     'border_width': 0, # Border width null
     'margin': 10,
 }

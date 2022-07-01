@@ -4,17 +4,25 @@ from libqtile.widget import (
     CurrentLayoutIcon,
     TextBox, 
     Spacer, 
-    GenPollText,
 )
+
 from custom.windowname import WindowName as CustomWindowName
+from custom.battery import Battery as CustomBattery
 from settings.path import qtile_path
 from os import path
-from settings.theme import colors
-
-
-BGMGR = 'background'
-FGMGR = 'foreground'
-
+from settings.theme import (
+      FGMGR
+    , BGMGR
+    , BLACK
+    , RED
+    , GREEN
+    , YELLOW
+    , BLUE
+    , MAGENTA
+    , CYAN
+    , WHITE
+    , BORDERS
+)
 
 
 
@@ -28,75 +36,77 @@ def texts(fg=FGMGR, bg=BGMGR, fontsize=16, text="?", padding=3, font='Cascadia M
 
 
 group_box_settings = {
-    "padding": 15,
-    "borderwidth": 0,
-    "disable_drag": True,
-    "font": 'Fira Code',
-    "rounded": True,
-    "highlight_color": colors[FGMGR],
-    "this_screen_border": colors['color4'],
-    "other_current_screen_border": colors[BGMGR],
-    "other_screen_border": colors[BGMGR],
-    "foreground": colors[FGMGR],
-    "background": colors[BGMGR],
-    "urgent_border": colors[BGMGR],
-    "fontsize": 15,
+      "padding":                     15
+    , "borderwidth":                 0
+    , "disable_drag":                True
+    , "font":                        'Cascadia Mono PL'
+    , "rounded":                     True
+    , "highlight_color":             FGMGR
 
+    , "this_screen_border":          MAGENTA
+    
+    , "other_current_screen_border": BGMGR
+    , "other_screen_border":         BGMGR
+    , "foreground":                  FGMGR
+    , "background":                  BGMGR
+    , "urgent_border":               BGMGR
+    , "fontsize":                    15
 
-    "margin_x": 0,
-    "margin_y": 1,
-    "this_current_screen_border": colors[BGMGR],
-    "urgent_text": colors[FGMGR],
-    "inactive": colors['color3'],
-    "active": colors['color1']
+    , "margin_x":                    0
+    , "margin_y":                    1
+    , "this_current_screen_border":  BGMGR
+    , "urgent_text":                 FGMGR
+    , "inactive":                    BORDERS
+    , "active":                      WHITE
 }
+
 
 def workspaces():
     return [
         GroupBox(
             **group_box_settings,
             visible_groups=["一"],
-            block_highlight_text_color=colors['color2'],
+            block_highlight_text_color=RED,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["二"],
-            block_highlight_text_color=colors['color4'],
+            block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["三"],
-            block_highlight_text_color=colors['color5'],
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["四"],
-            block_highlight_text_color=colors['color6'],
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["五"],
-            block_highlight_text_color=colors['color7'],
+            block_highlight_text_color=MAGENTA,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["六"],
-            block_highlight_text_color=colors['color4'],
+            block_highlight_text_color=CYAN,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["七"],
-            block_highlight_text_color=colors['color9'],
+            block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["八"],
-            block_highlight_text_color=colors['color5'],
+            block_highlight_text_color=RED,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["九"],
-            block_highlight_text_color=colors['color7'],
+            block_highlight_text_color=MAGENTA,
         )
         
     ]
@@ -114,30 +124,31 @@ def workspaces():
 
 
 
-def base(fg=FGMGR, bg=BGMGR, font='Fira Code'): 
+def base(fg=FGMGR, bg=BGMGR, font='Cascadia Mono PL'): 
     return {
-        'foreground': colors[fg],
-        'background': colors[bg],
+        'foreground': FGMGR,
+        'background': BGMGR,
         'font': font
     }
+
 
 def separator(padding=5, bg=BGMGR):
     return Sep(**base(bg=bg), linewidth=0, padding=padding)
 
+
 bar_widgets = [
-    separator(padding=15, bg=BGMGR),
+    separator(padding=9),
 
     CurrentLayoutIcon(
         custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-cyan")],
-        **base(bg=BGMGR, fg=FGMGR),
+        **base(),
         padding=0,
         scale=0.37,
-        fontsize=0.5
+        fontsize=0.4
     ),
-    #----
-
+    
     *workspaces(),
-    separator(padding=110, bg=BGMGR),
+    separator(padding=390),
     
     CustomWindowName(
         **base(),
@@ -145,6 +156,13 @@ bar_widgets = [
         fontsize=13,
         empty_group_string='Desktop',
     ),
+    Spacer(**base()),
+
+    texts(text='', padding=5, fontsize=13),
+    CustomBattery(**base(), fontsize=13),
+
+    separator(padding=15),
+
 ]
 
 
