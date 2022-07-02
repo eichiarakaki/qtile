@@ -16,6 +16,7 @@ def exclude_titles(title : str) -> bool:
         'fish',
         'zsh',
         'cava',
+        '~',
         #'python',
         #'nvim'
     ]
@@ -83,7 +84,7 @@ class WindowName(base._TextBox):
         just_title = gen(full_string, ' - ')
 
         if exclude_titles(just_title):
-            self.text = 'Desktop'.center(self.max_chars, ' ')
+            self.text = self.empty_group_string.center(self.max_chars, ' ')
         elif len(just_title) > self.max_chars > 0:
             trunc_string = just_title[: self.max_chars] + "…"
             self.text = trunc_string

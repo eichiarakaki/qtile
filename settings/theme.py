@@ -25,8 +25,8 @@ def load_theme():
 if __name__ == 'settings.theme':
     colors = load_theme()
 
-    FGMGR   = colors['foreground'][0]
-    BGMGR   = colors['background'][0]
+    FG      = colors['foreground'][0]
+    BG      = colors['background'][0]
     BLACK   = colors['black'][0]
     RED     = colors['red'][0]
     GREEN   = colors['green'][0]

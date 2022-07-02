@@ -13,18 +13,18 @@ def main_bar() -> Optional[BarType]:
     bar = mkbar.NewBar()
     bar.widget(bar_widgets) # widgets
     bar.opacity(1.0) # opacity
-    bar.geometry(1950, 45) # width / height
+    bar.geometry(1950, 41) # width / height
     bar.positions(15, 10) # X / Y
-    bar.margin(10)
+    bar.margin(4)
 
     return bar.assembler()
 
 
 screens: list = [Screen(
             top = main_bar(),
-            bottom = Gap(15),
-            left = Gap(15),
-            right = Gap(15),
+            bottom = Gap(5),
+            left = Gap(5),
+            right = Gap(5),
         )]
 
 
