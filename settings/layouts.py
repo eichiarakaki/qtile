@@ -12,8 +12,8 @@ from settings.theme import BORDERS, SOFT_BORDERS
 layout_cfg = {
     'border_focus': BORDERS,
     'border_normal': SOFT_BORDERS,
-    'border_width': 0, # Border width null
-    'margin': 10,
+    'border_width': 2, # Border width null
+    'margin': 5,
 }
 
 layouts = [

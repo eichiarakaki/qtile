@@ -15,14 +15,14 @@ def main_bar() -> Optional[BarType]:
     bar.opacity(1.0) # opacity
     bar.geometry(1950, 41) # width / height
     bar.positions(15, 10) # X / Y
-    bar.margin(4)
+    bar.margin(7)
 
     return bar.assembler()
 
 
 screens: list = [Screen(
-            top = main_bar(),
-            bottom = Gap(5),
+            top = Gap(5),
+            bottom = main_bar(),
             left = Gap(5),
             right = Gap(5),
         )]

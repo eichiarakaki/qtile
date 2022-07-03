@@ -7,10 +7,8 @@ from libqtile.widget import (
     , Clock
     , Memory
 )
-from more_itertools import only
 from custom.windowname import WindowName as CustomWindowName
 from custom.battery import Battery as CustomBattery
-from libqtile.command import lazy
 
 from settings.path import qtile_path
 from os import path
@@ -64,7 +62,7 @@ group_box_settings = {
     , "fontsize":                    15
 
     , "margin_x":                    0
-    , "margin_y":                    1
+    , "margin_y":                    3
     , "this_current_screen_border":  BG
     , "urgent_text":                 FG
     , "inactive":                    BORDERS
@@ -76,47 +74,47 @@ def workspaces():
     return [
         GroupBox(
             **group_box_settings,
-            visible_groups=["一"],
+            visible_groups=["Ⅰ"],
             block_highlight_text_color=RED,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["二"],
+            visible_groups=["Ⅱ"],
             block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["三"],
+            visible_groups=["Ⅲ"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["四"],
+            visible_groups=["Ⅳ"],
             block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["五"],
+            visible_groups=["Ⅴ"],
             block_highlight_text_color=MAGENTA,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["六"],
+            visible_groups=["Ⅵ"],
             block_highlight_text_color=CYAN,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["七"],
+            visible_groups=["Ⅶ"],
             block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["八"],
+            visible_groups=["Ⅷ"],
             block_highlight_text_color=RED,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["九"],
+            visible_groups=["Ⅸ"],
             block_highlight_text_color=MAGENTA,
         )
         

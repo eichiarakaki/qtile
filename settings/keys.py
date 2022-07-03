@@ -1,12 +1,11 @@
 from libqtile.config import Key
 from libqtile.command import lazy
-from settings.path import qtile_path
 from os.path import join
-from libqtile.widget import KeyboardLayout
+
+from settings.path import qtile_path
+from settings.keyboard import next_layout
 
 modkey = 'mod4'
-
-keyboard = KeyboardLayout(configured_keyboards=['us', 'es'])
 
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
@@ -68,15 +67,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([modkey], 's', lazy.spawn('flameshot gui')),
 
     # keyboard layouts
-    ([modkey], "space", lazy.widget["keyboardlayout"].next_keyboard()),
+    ([modkey], 'space', lazy.function(next_layout, ['es', 'us'])),
 
-    #--------------- EWW Widgets ---------------
-
-    ([modkey], 'q', lazy.spawn(join(qtile_path, 'scripts', 'open_sidebar'))),
-    ([modkey], 'e', lazy.spawn(join(qtile_path, 'scripts', 'close_sidebar'))),
-
-    # Restart daemon
-    # ([modkey], 'F2', lazy.spawn(f'python3 {join(qtile_path, "scripts", "restart_eww.py")}')),
 
     # ------------ Hardware Configs ------------
 
