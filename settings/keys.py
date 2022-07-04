@@ -31,10 +31,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Toggle between different layouts as defined below
     ([modkey], 'Tab', lazy.next_layout()),
-    #([modkey, "shift"], "Tab", lazy.prev_layout()),
 
+    # Toggle a window to floating & tiling
+    ([modkey], 'f', lazy.window.toggle_floating()),
 
-    ([modkey, 'shift'], 'o', lazy.layout.reset()),
 
     # Kill window
     ([modkey], 'w', lazy.window.kill()),
@@ -48,7 +48,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     
     # ------------ App Configs ------------
     # Menu
-    ([modkey], 'm', lazy.spawn(join(qtile_path, "scripts", "bin", "launcher"))),
+    #([modkey], 'm', lazy.spawn(join(qtile_path, "scripts", "bin", "launcher"))),
 
     # Window Nav
     #([modkey, "shift"], "m", lazy.spawn("rofi -show")),

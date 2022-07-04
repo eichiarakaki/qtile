@@ -9,7 +9,7 @@ mouse = [
     Drag(
         [modkey],
         "Button1",
-        lazy.window.set_position_floating(),
+        lazy.window.set_position(),
         start=lazy.window.get_position()
     ),
     Drag(
