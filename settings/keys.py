@@ -1,8 +1,5 @@
 from libqtile.config import Key
 from libqtile.command import lazy
-from os.path import join
-
-from settings.path import qtile_path
 from settings.keyboard import next_layout
 
 modkey = 'mod4'
@@ -12,22 +9,22 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
 
     # Switch between windows in current stack pane
-    ([modkey], 'h', lazy.layout.left()),
-    ([modkey], 'l', lazy.layout.right()),
-    ([modkey], 'j', lazy.layout.down()),
-    ([modkey], 'k', lazy.layout.up()),
+    ([modkey, 'control'], 'h', lazy.layout.left()),
+    ([modkey, 'control'], 'l', lazy.layout.right()),
+    ([modkey, 'control'], 'j', lazy.layout.down()),
+    ([modkey, 'control'], 'k', lazy.layout.up()),
 
     # Change window sizes
-    ([modkey, 'shift', 'control'], 'j', lazy.layout.grow()),
-    ([modkey, 'shift', 'control'], 'k', lazy.layout.shrink()),
-    ([modkey, 'shift', 'control'], 'n', lazy.layout.normalize()),
-    ([modkey, 'shift', 'control'], 'm', lazy.layout.maximize()),
+    ([modkey, 'shift'], 'j', lazy.layout.grow()),
+    ([modkey, 'shift'], 'k', lazy.layout.shrink()),
+    ([modkey, 'shift'], 'n', lazy.layout.normalize()),
+    ([modkey, 'shift'], 'm', lazy.layout.maximize()),
 
     # Move windows in current stack
-    ([modkey, 'shift'], 'h', lazy.layout.shuffle_left()),
-    ([modkey, 'shift'], 'l', lazy.layout.shuffle_right()),
-    ([modkey, 'shift'], 'j', lazy.layout.shuffle_down()),
-    ([modkey, 'shift'], 'k', lazy.layout.shuffle_up()),
+    ([modkey], 'h', lazy.layout.shuffle_left()),
+    ([modkey], 'l', lazy.layout.shuffle_right()),
+    ([modkey], 'j', lazy.layout.shuffle_down()),
+    ([modkey], 'k', lazy.layout.shuffle_up()),
 
     # Toggle between different layouts as defined below
     ([modkey], 'Tab', lazy.next_layout()),
@@ -35,22 +32,16 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Toggle a window to floating & tiling
     ([modkey], 'f', lazy.window.toggle_floating()),
 
-
     # Kill window
     ([modkey], 'w', lazy.window.kill()),
-
-    # Switch focus of monitors
-    # ([mod], "period", lazy.next_screen()),
-    # ([mod], "comma", lazy.prev_screen()),
 
     # Restart Qtile
     ([modkey], 'F1', lazy.restart()),
     
+    
     # ------------ App Configs ------------
-    # Menu
-    #([modkey], 'm', lazy.spawn(join(qtile_path, "scripts", "bin", "launcher"))),
 
-    # Window Nav
+    # Launcher
     #([modkey, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Browser

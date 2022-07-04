@@ -129,7 +129,7 @@ bar_widgets = [
     separator(padding=7),
 
     CurrentLayoutIcon(
-        custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-cyan")],
+        custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-color-deep-mixed")],
         **base(),
         padding=0,
         scale=0.37,

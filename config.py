@@ -13,16 +13,16 @@ from settings.layouts import (
     layouts, 
     floating_layout,
 )
-
 from settings.widgets import (
     widget_defaults, 
     extension_defaults,
 )
 
+
+
 @subscribe.startup_once
 def autostart():
     call([join(qtile_path, 'startup.sh')])
-
 
 
 main = None

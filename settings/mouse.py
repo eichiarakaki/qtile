@@ -5,6 +5,7 @@ from libqtile.config import (
 from libqtile.command import lazy
 from settings.keys import modkey
 
+
 mouse = [
     Drag(
         [modkey],

@@ -1,9 +1,9 @@
-from libqtile.command import lazy
 from os import system
 from subprocess import (
       run
     , PIPE
 )
+
 
 class KeyboardLayout:
     def __init__(self, kbs: list) -> None:
@@ -33,7 +33,6 @@ class KeyboardLayout:
         
         system('setxkbmap %s' % self._next_kb)
         
-
 
 def next_layout(qtile, kbs: list):
     aux = KeyboardLayout(kbs)

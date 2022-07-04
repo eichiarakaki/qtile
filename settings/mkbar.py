@@ -2,7 +2,6 @@ from sys import path
 from os.path import join
 from .path import qtile_path
 path.append(join(qtile_path, 'settings'))
-
 from typing import Optional
 from libqtile.bar import (
     BarType, 
@@ -10,12 +9,16 @@ from libqtile.bar import (
     Gap,
 )
 
+
+
 class __Error(Exception):
     """Base class for other exceptions"""
     pass
 
+
 class _ConfigError(__Error):
     pass
+
 
 class _Overflows(__Error):
     """ Exception raised for errors in the input integers. """
@@ -25,10 +28,12 @@ class _Overflows(__Error):
         self.__maximum = maximum
         self.__entered_value = entered_value
 
+
     def __str__(self):
         return '{} is not in the range of {} and {}'.format(self.__entered_value,
                                                             self.__minimum,
                                                             self.__maximum)
+
 
 class NewBar:
     def __init__(self) -> None:
