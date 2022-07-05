@@ -1,3 +1,5 @@
+from turtle import bgcolor
+from libqtile.command import lazy
 from libqtile.widget import (
       Sep
     , GroupBox
@@ -5,7 +7,8 @@ from libqtile.widget import (
     , TextBox
     , Spacer
     , Clock
-    , Memory
+    , TextBox
+    , Notify
 )
 from custom.windowname import WindowName as CustomWindowName
 from custom.battery import Battery as CustomBattery
@@ -22,6 +25,8 @@ from settings.theme import (
     , BLUE
     , MAGENTA
     , CYAN
+    , ORANGE
+    , GREY
     , WHITE
     , BORDERS
 )
@@ -66,7 +71,7 @@ group_box_settings = {
     , "this_current_screen_border":  BG
     , "urgent_text":                 FG
     , "inactive":                    BORDERS
-    , "active":                      WHITE
+    , "active":                      GREY
 }
 
 
@@ -74,50 +79,91 @@ def workspaces():
     return [
         GroupBox(
             **group_box_settings,
-            visible_groups=["Ⅰ"],
-            block_highlight_text_color=RED,
-        ),
-        GroupBox(
-            **group_box_settings,
-            visible_groups=["Ⅱ"],
-            block_highlight_text_color=GREEN,
-        ),
-        GroupBox(
-            **group_box_settings,
-            visible_groups=["Ⅲ"],
-            block_highlight_text_color=YELLOW,
-        ),
-        GroupBox(
-            **group_box_settings,
-            visible_groups=["Ⅳ"],
+            visible_groups=["一"],
             block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["Ⅴ"],
-            block_highlight_text_color=MAGENTA,
+            visible_groups=["二"],
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["Ⅵ"],
-            block_highlight_text_color=CYAN,
+            visible_groups=["三"],
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["Ⅶ"],
-            block_highlight_text_color=GREEN,
+            visible_groups=["四"],
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["Ⅷ"],
-            block_highlight_text_color=RED,
+            visible_groups=["五"],
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["Ⅸ"],
-            block_highlight_text_color=MAGENTA,
+            visible_groups=["六"],
+            block_highlight_text_color=BLUE,
+        ),
+        GroupBox(
+            **group_box_settings,
+            visible_groups=["七"],
+            block_highlight_text_color=BLUE,
+        ),
+        GroupBox(
+            **group_box_settings,
+            visible_groups=["八"],
+            block_highlight_text_color=BLUE,
+        ),
+        GroupBox(
+            **group_box_settings,
+            visible_groups=["九"],
+            block_highlight_text_color=BLUE,
         )
         
+    ]
+
+
+def apps(padding: int) -> list:
+    return [
+        TextBox(
+          **base(fg=BLUE)
+        , fontsize=17
+        , text=''
+        , padding=padding
+        , mouse_callbacks={'Button1': lazy.spawn('code')},
+    ),
+    TextBox(
+          **base(fg=ORANGE)
+        , fontsize=15
+        , text=''
+        , padding=padding
+        , mouse_callbacks={'Button1': lazy.spawn('open https://www.reddit.com/')},
+    ),
+    TextBox(
+          **base(fg=GREEN)
+        , fontsize=17
+        , text=''
+        , padding=padding
+        , mouse_callbacks={'Button1': lazy.spawn('spotify')},
+    ),
+    TextBox(
+          **base(fg=WHITE)
+        , fontsize=16
+        , text=''
+        , padding=padding
+        , mouse_callbacks={'Button1': lazy.spawn('open https://github.com/')},
+    ),
+    TextBox(
+          **base(fg=RED)
+        , fontsize=15
+        , text=''
+        , padding=padding
+        , mouse_callbacks={'Button1': lazy.spawn('open https://www.youtube.com/')},
+    ),
+    
     ]
 
 
@@ -132,12 +178,12 @@ bar_widgets = [
         custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-color-deep-mixed")],
         **base(),
         padding=0,
-        scale=0.37,
+        scale=0.42,
         fontsize=0.4
     ),
 
     *workspaces(),
-    separator(padding=470),
+    separator(padding=480),
     
     CustomWindowName(
         **base(),
@@ -147,22 +193,13 @@ bar_widgets = [
     ),
     Spacer(**base()),
 
-    
-    
-    
-    
-    txt(text='|', fontsize=15, fg=BORDERS, padding=8),
-    # Memory
-    Memory(
-          **base(fg=YELLOW)
-        , fontsize=13
-        , format='{MemUsed: .0f}{mm} of{MemTotal: .0f}{mm}'
-    ),
+    # Boxes
+    *apps(padding=13),
 
 
     txt(text='|', fontsize=15, fg=BORDERS, padding=8),
     # Time
-    #txt(text='', fontsize=18, fg=CYAN),
+    txt(text=' ', fontsize=14, fg=CYAN),
     Clock(
           **base(fg=CYAN)
         , fontsize=13
@@ -172,7 +209,7 @@ bar_widgets = [
     
     txt(text='|', fontsize=15, fg=BORDERS, padding=8),
     # Battery
-    #txt(text='', padding=5, fontsize=13, fg=GREEN),
+    txt(text='', padding=5, fontsize=13, fg=GREEN),
     CustomBattery(
         **base(fg=GREEN), 
         fontsize=13,

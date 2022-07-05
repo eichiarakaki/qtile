@@ -4,9 +4,11 @@ import getpass
 
 USERNAME = getpass.getuser()
 
+
 def gen(text: str, sep: str) -> str:
     sep = text.find(sep)
     return text[:sep] if sep != -1 else text
+
 
 def exclude_titles(title : str) -> bool:
     """Everything with X or the full path"""

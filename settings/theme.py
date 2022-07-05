@@ -33,7 +33,9 @@ if __name__ == 'settings.theme':
     YELLOW  = colors['yellow'][0]
     BLUE    = colors['blue'][0]
     MAGENTA = colors['magenta'][0]
+    ORANGE  = colors['orange'][0]
     CYAN    = colors['cyan'][0]
+    GREY    = colors['grey'][0]
     WHITE   = colors['white'][0]
     BORDERS = colors['borders'][0]
 
@@ -42,6 +44,7 @@ if __name__ == 'settings.theme':
     SOFT_YELLOW  = colors['yellow'][1]
     SOFT_BLUE    = colors['blue'][1]
     SOFT_MAGENTA = colors['magenta'][1]
+    ORANGE       = colors['orange'][1]
     SOFT_CYAN    = colors['cyan'][1]
     SOFT_WHITE   = colors['white'][1]
     SOFT_BORDERS = colors['borders'][1]
