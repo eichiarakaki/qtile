@@ -7,7 +7,7 @@ from os.path import (
 
 
 def load_theme():
-    file_name = 'default'
+    file_name = 'mirai'
     dir_name = 'themes'
     theme_path = join(
         qtile_path, 

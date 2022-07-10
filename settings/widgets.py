@@ -1,4 +1,3 @@
-from turtle import bgcolor
 from libqtile.command import lazy
 from libqtile.widget import (
       Sep
@@ -8,7 +7,6 @@ from libqtile.widget import (
     , Spacer
     , Clock
     , TextBox
-    , Notify
 )
 from custom.windowname import WindowName as CustomWindowName
 from custom.battery import Battery as CustomBattery
@@ -67,7 +65,7 @@ group_box_settings = {
     , "fontsize":                    15
 
     , "margin_x":                    0
-    , "margin_y":                    3
+    , "margin_y":                    1
     , "this_current_screen_border":  BG
     , "urgent_text":                 FG
     , "inactive":                    BORDERS
@@ -80,47 +78,47 @@ def workspaces():
         GroupBox(
             **group_box_settings,
             visible_groups=["一"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["二"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["三"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["四"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["五"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["六"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["七"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["八"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["九"],
-            block_highlight_text_color=BLUE,
+            block_highlight_text_color=YELLOW,
         )
         
     ]
@@ -151,14 +149,14 @@ def apps(padding: int) -> list:
     ),
     TextBox(
           **base(fg=WHITE)
-        , fontsize=16
+        , fontsize=17
         , text=''
         , padding=padding
         , mouse_callbacks={'Button1': lazy.spawn('open https://github.com/')},
     ),
     TextBox(
           **base(fg=RED)
-        , fontsize=15
+        , fontsize=16
         , text=''
         , padding=padding
         , mouse_callbacks={'Button1': lazy.spawn('open https://www.youtube.com/')},
@@ -175,7 +173,7 @@ bar_widgets = [
     separator(padding=7),
 
     CurrentLayoutIcon(
-        custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-color-deep-mixed")],
+        custom_icon_paths=[path.join(qtile_path, "icons", "Layouts-mirai-colorscheme")],
         **base(),
         padding=0,
         scale=0.42,
@@ -189,7 +187,7 @@ bar_widgets = [
         **base(),
         max_chars=25,
         fontsize=13,
-        empty_group_string='Desktop ﰉ',
+        empty_group_string='Desktop',
     ),
     Spacer(**base()),
 

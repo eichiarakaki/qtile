@@ -9,7 +9,7 @@ from libqtile.bar import (
     Gap,
 )
 
-
+# My shit code 🥺
 
 class __Error(Exception):
     """Base class for other exceptions"""

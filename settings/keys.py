@@ -1,7 +1,6 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 from settings.keyboard import next_layout
-from libqtile.widget import Notify
 
 modkey = 'mod4'
 altkey = 'mod1'
@@ -11,16 +10,16 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
 
     # Switch between windows in current stack pane
-    ([altkey], 'h', lazy.layout.left()),
-    ([altkey], 'l', lazy.layout.right()),
-    ([altkey], 'j', lazy.layout.down()),
-    ([altkey], 'k', lazy.layout.up()),
+    ([altkey], 'j', lazy.layout.left()),
+    ([altkey], 'k', lazy.layout.right()),
+    ([altkey], 'h', lazy.layout.down()),
+    ([altkey], 'l', lazy.layout.up()),
 
     # Change window sizes
-    (['control'], 'j', lazy.layout.grow()),
-    (['control'], 'k', lazy.layout.shrink()),
-    (['control'], 'n', lazy.layout.normalize()),
-    (['control'], 'm', lazy.layout.maximize()),
+    (['control'], 'h', lazy.layout.grow()),
+    (['control'], 'l', lazy.layout.shrink()),
+    #(['control'], 'n', lazy.layout.normalize()),
+    #(['control'], 'm', lazy.layout.maximize()),
 
     # Move windows in current stack
     ([modkey], 'h', lazy.layout.shuffle_left()),
