@@ -7,9 +7,10 @@ from libqtile.widget import (
     , Spacer
     , Clock
     , TextBox
+    , Battery
 )
 from custom.windowname import WindowName as CustomWindowName
-from custom.battery import Battery as CustomBattery
+# from custom.battery import Battery as CustomBattery
 
 from settings.path import qtile_path
 from os import path
@@ -208,7 +209,7 @@ bar_widgets = [
     txt(text='|', fontsize=15, fg=BORDERS, padding=8),
     # Battery
     txt(text='', padding=5, fontsize=13, fg=GREEN),
-    CustomBattery(
+    Battery(
         **base(fg=GREEN), 
         fontsize=13,
         format='{percent:2.0%}', # {char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W

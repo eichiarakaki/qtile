@@ -16,8 +16,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([altkey], 'l', lazy.layout.up()),
 
     # Change window sizes
-    (['control'], 'h', lazy.layout.grow()),
-    (['control'], 'l', lazy.layout.shrink()),
+    (['shift'], 'h', lazy.layout.grow()),
+    (['shift'], 'l', lazy.layout.shrink()),
     #(['control'], 'n', lazy.layout.normalize()),
     #(['control'], 'm', lazy.layout.maximize()),
 

@@ -13,7 +13,7 @@ layout_cfg = {
     'border_focus': BORDERS,
     'border_normal': SOFT_BORDERS,
     'border_width': 0, # Border width 0 = null
-    'margin': 5,
+    'margin': 6,
 }
 
 layouts = [
