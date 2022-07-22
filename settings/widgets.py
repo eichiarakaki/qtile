@@ -8,6 +8,7 @@ from libqtile.widget import (
     , Clock
     , TextBox
     , Battery
+    , CurrentLayout
 )
 from custom.windowname import WindowName as CustomWindowName
 # from custom.battery import Battery as CustomBattery
@@ -78,47 +79,47 @@ def workspaces():
     return [
         GroupBox(
             **group_box_settings,
-            visible_groups=["一"],
+            visible_groups=["壹"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["二"],
+            visible_groups=["貳"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["三"],
+            visible_groups=["參"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["四"],
+            visible_groups=["肆"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["五"],
+            visible_groups=["伍"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["六"],
+            visible_groups=["陸"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["七"],
+            visible_groups=["柒"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["八"],
+            visible_groups=["捌"],
             block_highlight_text_color=YELLOW,
         ),
         GroupBox(
             **group_box_settings,
-            visible_groups=["九"],
+            visible_groups=["玖"],
             block_highlight_text_color=YELLOW,
         )
         
@@ -180,16 +181,22 @@ bar_widgets = [
         scale=0.42,
         fontsize=0.4
     ),
-
-    *workspaces(),
-    separator(padding=480),
-    
-    CustomWindowName(
+    CurrentLayout(
         **base(),
-        max_chars=25,
-        fontsize=13,
-        empty_group_string='Desktop',
+        fontize=13,
+        fmt='{}'
     ),
+
+    # CustomWindowName(
+    #     **base(),
+    #     max_chars=25,
+    #     fontsize=13,
+    #     empty_group_string='Desktop',
+    # ),
+
+    Spacer(**base()),
+    *workspaces(),
+    
     Spacer(**base()),
 
     # Boxes
@@ -198,17 +205,18 @@ bar_widgets = [
 
     txt(text='|', fontsize=15, fg=BORDERS, padding=8),
     # Time
-    txt(text=' ', fontsize=14, fg=CYAN),
+    #txt(text=' ', fontsize=14, fg=CYAN),
     Clock(
           **base(fg=CYAN)
         , fontsize=13
-        , format='%B %-d, %I:%M'
+        #, format='%B %-d, %I:%M'
+        , format='%I:%M'
     ),
 
     
     txt(text='|', fontsize=15, fg=BORDERS, padding=8),
     # Battery
-    txt(text='', padding=5, fontsize=13, fg=GREEN),
+    #txt(text='', padding=5, fontsize=13, fg=GREEN),
     Battery(
         **base(fg=GREEN), 
         fontsize=13,

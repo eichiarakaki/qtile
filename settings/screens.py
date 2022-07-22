@@ -13,9 +13,9 @@ def main_bar() -> Optional[BarType]:
     bar = mkbar.NewBar()
     bar.widget(bar_widgets) # widgets
     bar.opacity(1.0) # opacity
-    bar.geometry(1950, 42) # width / height
-    bar.positions(15, 10) # X / Y
-    bar.margin(5)
+    bar.geometry(1980, 42) # width / height
+    bar.positions(0, 0) # X / Y
+    bar.margin(8)
 
     return bar.assembler()
 

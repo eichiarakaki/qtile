@@ -34,17 +34,29 @@ from settings.keys import (
 # "八"
 # "九"
 
+# "壹", "貳", "參", "肆", "伍", "陸", "柒", "捌", "玖"
+
+
+# "壹", 
+# "貳", 
+# "參", 
+# "肆", 
+# "伍", 
+# "陸", 
+# "柒", 
+# "捌", 
+# "玖"
 
 all_groups = [
-                ('一', {'layout': 'monadtall'})
-              , ('二', {'layout': 'monadtall'})
-              , ('三', {'layout': 'monadtall'})
-              , ('四', {'layout': 'monadtall'})
-              , ('五', {'layout': 'bsp'      })
-              , ('六', {'layout': 'bsp'      })
-              , ('七', {'layout': 'bsp'      })
-              , ('八', {'layout': 'bsp'      })
-              , ('九', {'layout': 'monadtall'})
+                ('壹', {'layout': 'monadtall'})
+              , ('貳', {'layout': 'monadtall'})
+              , ('參', {'layout': 'monadtall'})
+              , ('肆', {'layout': 'monadtall'})
+              , ('伍', {'layout': 'bsp'      })
+              , ('陸', {'layout': 'bsp'      })
+              , ('柒', {'layout': 'bsp'      })
+              , ('捌', {'layout': 'bsp'      })
+              , ('玖', {'layout': 'monadtall'})
             ]
 
 groups = [Group(name, **kwargs) for name, kwargs in all_groups]

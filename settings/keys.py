@@ -16,8 +16,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([altkey], 'l', lazy.layout.up()),
 
     # Change window sizes
-    (['shift'], 'h', lazy.layout.grow()),
-    (['shift'], 'l', lazy.layout.shrink()),
+    (['shift'], 'j', lazy.layout.grow()),
+    (['shift'], 'k', lazy.layout.shrink()),
     #(['control'], 'n', lazy.layout.normalize()),
     #(['control'], 'm', lazy.layout.maximize()),
 
@@ -43,7 +43,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ App Configs ------------
 
     # Launcher
-    #([modkey, "shift"], "m", lazy.spawn("rofi -show")),
+    ([modkey], "m", lazy.spawn("rofi -show drun")),
 
     # Browser
     ([modkey], 'b', lazy.spawn('brave')),

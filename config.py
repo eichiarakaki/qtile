@@ -1,6 +1,6 @@
 from libqtile.hook import subscribe
 from os.path import join
-from subprocess import call
+from re import search
 from settings.path import qtile_path
 from settings.screens import screens
 from settings.mouse import mouse
@@ -17,12 +17,30 @@ from settings.widgets import (
     widget_defaults, 
     extension_defaults,
 )
+from subprocess import (
+    call,
+    PIPE,
+    Popen,
+)
+
+
+def is_running(process):
+    s = Popen(["ps", "axuw"], stdout=PIPE)
+    for x in s.stdout:
+        if search(process, x):
+            return True
+    return False
+
+def execute_once(process):
+    if not is_running(process):
+        return Popen(process.split())
 
 
 
 @subscribe.startup_once
 def autostart():
     call([join(qtile_path, 'startup.sh')])
+    # execute_once('echo something.')
 
 
 main = None
