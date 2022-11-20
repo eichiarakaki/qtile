@@ -15,7 +15,7 @@ def main_bar() -> Optional[BarType]:
     bar.opacity(1.0) # opacity
     bar.geometry(1980, 42) # width / height
     bar.positions(0, 0) # X / Y
-    bar.margin(8)
+    bar.margin(5)
 
     return bar.assembler()
 

@@ -32,7 +32,7 @@ from settings.theme import (
 )
 
 
-def base(fg=FG, bg=BG, font='Cascadia Mono PL'): 
+def base(fg=FG, bg=BG, font='Iosevka'): 
     return {
         'foreground': fg,
         'background': bg,
@@ -50,7 +50,7 @@ def txt(fg=FG, bg=BG, fontsize=16, text="?", padding=3, font='Cascadia Mono PL')
 
 
 group_box_settings = {
-      "padding":                     10
+      "padding":                     17
     , "borderwidth":                 0
     , "disable_drag":                True
     , "font":                        'Cascadia Mono PL'
@@ -64,7 +64,7 @@ group_box_settings = {
     , "foreground":                  FG
     , "background":                  BG
     , "urgent_border":               BG
-    , "fontsize":                    15
+    , "fontsize":                    16
 
     , "margin_x":                    0
     , "margin_y":                    1
@@ -80,47 +80,47 @@ def workspaces():
         GroupBox(
             **group_box_settings,
             visible_groups=["壹"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["貳"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["參"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["肆"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["伍"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["陸"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["柒"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=GREEN,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["捌"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=BLUE,
         ),
         GroupBox(
             **group_box_settings,
             visible_groups=["玖"],
-            block_highlight_text_color=YELLOW,
+            block_highlight_text_color=GREEN,
         )
         
     ]
