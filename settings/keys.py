@@ -9,7 +9,7 @@ altkey = 'mod1'
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
 
-    # Switch between windows in current stack pane
+    # Switch focus between windows in current stack pane
     ([altkey], 'j', lazy.layout.left()),
     ([altkey], 'k', lazy.layout.right()),
     ([altkey], 'h', lazy.layout.down()),
@@ -22,10 +22,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     #(['control'], 'm', lazy.layout.maximize()),
 
     # Move windows in current stack
-    ([modkey], 'h', lazy.layout.shuffle_left()),
-    ([modkey], 'l', lazy.layout.shuffle_right()),
-    ([modkey], 'j', lazy.layout.shuffle_down()),
-    ([modkey], 'k', lazy.layout.shuffle_up()),
+    ([modkey], 'j', lazy.layout.shuffle_left()),
+    ([modkey], 'k', lazy.layout.shuffle_right()),
+    ([modkey], 'h', lazy.layout.shuffle_down()),
+    ([modkey], 'l', lazy.layout.shuffle_up()),
 
     # Toggle between different layouts as defined below
     ([modkey], 'Tab', lazy.next_layout()),

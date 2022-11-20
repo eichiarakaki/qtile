@@ -210,7 +210,7 @@ bar_widgets = [
           **base(fg=CYAN)
         , fontsize=13
         #, format='%B %-d, %I:%M'
-        , format='%I:%M'
+        , format='%I:%M %p'
     ),
 
     
