@@ -21,7 +21,7 @@ def main_bar() -> Optional[BarType]:
 
 
 screens: list = [Screen(
-            top = main_bar(),
+            top = Gap(5),
             bottom = Gap(5),
             left = Gap(5),
             right = Gap(5),

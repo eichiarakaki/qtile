@@ -1,13 +1,14 @@
 #!/bin/bash
 
 
+script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 # Processes
-picom               &
-udiskie             &
-$HOME/.fehbg        &
-dunst               &
-xset r rate 300 100 & # only for x11
-
+picom                  &
+udiskie                &
+$HOME/.fehbg           &
+dunst                  &
+xset r rate 300 100    & # only for x11
+$script_dir/batnotify  &
 
 
 # brightnessctl
@@ -40,13 +41,6 @@ case $date in
     "4")                   redshift -O 4200 &;;
     "5")                   redshift -O 4300 &;;
     "6")                   redshift -O 4400 &;;
-    "7")                   redshift -O 4500 &;;
-    "8")                   redshift -O 4600 &;;
-    "9" | "10" | "11")     redshift -O 4700 &;;
-    "15" | "16" | "17")    redshift -O 4600 &;;
-    "18")                  redshift -O 4500 &;;
-    "19")                  redshift -O 4400 &;;
-    "20")                  redshift -O 4300 &;;
     "21")                  redshift -O 4200 &;;
     "22" | "23")           redshift -O 4100 &;; 
     *);;

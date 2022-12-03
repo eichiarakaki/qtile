@@ -1,0 +1,29 @@
+#!/bin/bash
+
+flag=true
+while :
+do
+    cb=$(cat /sys/class/power_supply/BAT0/capacity)
+    sb=$(cat /sys/class/power_supply/BAT0/status)
+    if (($cb < 100)) && [ "$sb" = "Discharging" ]
+    then
+        if ! (( $cb % 10 == 0)); then
+            echo $cb $flag
+            flag=true
+            
+        fi
+
+        if (($cb % 10 == 0)) && [ "$flag" = true ]
+        then
+            flag=false
+            case $cb in
+                50 | 40) notify-send "System Battery" "Oh no! $cb% left!" -u normal -t 4000;;
+                30 | 20) notify-send "System Battery" "Oh no! you should charge me :( - $cb% left!" -u normal -t 5000;;
+                10 | 5) notify-send "System Battery" "Your laptop is about to die.. - $cb% left.." -u critical -t 5500;;
+                *) notify-send "System Battery" "Battery Percentage: $cb%" -u low -t 2800;;
+            esac
+        fi
+    fi
+
+    sleep 8
+done

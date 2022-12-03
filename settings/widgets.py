@@ -10,7 +10,7 @@ from libqtile.widget import (
     , Battery
     , CurrentLayout
 )
-from custom.windowname import WindowName as CustomWindowName
+# from custom.windowname import WindowName as CustomWindowName
 # from custom.battery import Battery as CustomBattery
 
 from settings.path import qtile_path

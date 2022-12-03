@@ -1,7 +1,7 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 from settings.keyboard import next_layout
-
+from settings.path import qtile_path
 modkey = 'mod4'
 altkey = 'mod1'
 
@@ -10,22 +10,22 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
 
     # Switch focus between windows in current stack pane
-    ([altkey], 'j', lazy.layout.left()),
-    ([altkey], 'k', lazy.layout.right()),
-    ([altkey], 'h', lazy.layout.down()),
-    ([altkey], 'l', lazy.layout.up()),
+    ([modkey], 'j', lazy.layout.left()),
+    ([modkey], 'k', lazy.layout.right()),
+    ([modkey], 'h', lazy.layout.down()),
+    ([modkey], 'l', lazy.layout.up()),
 
     # Change window sizes
-    (['shift', modkey], 'j', lazy.layout.grow()),
-    (['shift', modkey], 'k', lazy.layout.shrink()),
+    ([altkey, modkey], 'j', lazy.layout.grow()),
+    ([altkey, modkey], 'k', lazy.layout.shrink()),
     #(['control'], 'n', lazy.layout.normalize()),
     #(['control'], 'm', lazy.layout.maximize()),
 
     # Move windows in current stack
-    ([modkey], 'j', lazy.layout.shuffle_left()),
-    ([modkey], 'k', lazy.layout.shuffle_right()),
-    ([modkey], 'h', lazy.layout.shuffle_down()),
-    ([modkey], 'l', lazy.layout.shuffle_up()),
+    ([altkey], 'j', lazy.layout.shuffle_left()),
+    ([altkey], 'k', lazy.layout.shuffle_right()),
+    ([altkey], 'h', lazy.layout.shuffle_down()),
+    ([altkey], 'l', lazy.layout.shuffle_up()),
 
     # Toggle between different layouts as defined below
     ([modkey], 'Tab', lazy.next_layout()),
@@ -57,6 +57,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Screenshot
     ([modkey], 's', lazy.spawn('flameshot gui')),
+    
+    ([modkey], 't', lazy.spawn(f'{qtile_path}/scripts/timenotify')),
 
     # keyboard layouts
     ([modkey], 'space', lazy.function(next_layout, ['es', 'us'])),

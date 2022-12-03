@@ -1,0 +1,5 @@
+#!/bin/bash
+# current time
+time=$(date +%I:%M%p)
+date=$(date +%Y/%m/%d)
+notify-send "System time" "Today is $date - $time" -t 5000 -u low
